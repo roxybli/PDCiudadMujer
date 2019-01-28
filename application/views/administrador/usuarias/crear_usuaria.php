@@ -7,7 +7,7 @@
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Inicio</a></li>
-                        <li class="breadcrumb-item active">Nuevo usuaria</li>
+                        <li class="breadcrumb-item active">Nueva usuaria</li>
                     </ol>
                 </div>
             </div>
@@ -17,13 +17,14 @@
                 <!-- Start Page Content -->
                 <div class="row ">
                     <div class="col-sm-12">
-                        <div class="card">
-                                <div class="card TituloUser">
+                        <div class="card TituloUser" style="height: 60px">
                                     <h3 class="responsive" style="color:white; font-weight:bold;">Nueva Usuaria</h3>
    
                                 </div>
+                        <div class="card">
+                                
                                 <div class="form-validation" style="margin:15px;">
-                                    <p style="color:#000000;"><b>Indicaciones</b><br>Todos los campos son requeridos</p>
+                                    <p class="text-danger"><b>Indicaciones</b><br>(*) Todos los campos son requeridos.</p>
                                         <!-- Bread crumb -->
                                                     <form  action="<?=base_url()?>Emprendedoras/registro_usuaria" method="post" id="FormUsuarias" class="FormUsuarias">
 

@@ -1,6 +1,5 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js" ></script>
 <script type="text/javascript" src="<?= base_url()?>plantilla/componentes/js/tinymce/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
@@ -12,14 +11,6 @@ foreach ($Noticia->result() as $Noti) {
     # code...
 }
 ?>
-<!--ESTA ES LA FORMA DE MOSTRAR LA IMAGEN
-<form method="POST" action="<?= base_url() ?>Anuncios/guardar" enctype="multipart/form-data">
-
-<input type="file" name="imagenN"> selleccionar archivo
-<button name="btn">Guardar</button>
-</form>
-<img src="data:image/jpg; base64,<?php echo base64_encode($imagenconvert);?>"/>
--->
 <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
@@ -38,7 +29,7 @@ foreach ($Noticia->result() as $Noti) {
                 <!-- Start Page Content -->
                 <div class="row ">
                     <div class="col-sm-12">
-                        <div class="card-title TituloUser">
+                        <div class="card-title TituloUser" style="height: 60px">
                                     <h3 style="color:white; font-weight:bold;">Editar Noticia</h3>
                                 </div>
                         <div class="card " >
@@ -49,8 +40,8 @@ foreach ($Noticia->result() as $Noti) {
                                                         <div class="row ">
 
                                                          <div class="col-md-12">
-                                                          <label style="color: #000000">Fecha de Pubicacion</label>
-                                                                <div class="form-group"  id='datetimepicker9' >
+                                                          <label style="color: #000000">Fecha de Pubicación</label>
+                                                                <div class="form-group"  id="fecha1" >
                                                                    <div class='input-group' >
                                                                    <!--CAMPOS OULTOS-->
                                                                    <input hidden type="text" name="Imagen" value="<?= $Noti->Imagen?>">
@@ -65,7 +56,7 @@ foreach ($Noticia->result() as $Noti) {
                                                                 </div>
                                                             </div>
                                                          <div class="col-md-12">
-                                                                <label style="color: #000000">Titulo de Pubicacion</label>
+                                                                <label style="color: #000000">Titulo de Pubicación</label>
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control" id="val-name " name="titulo" placeholder="Titulo de la Noticia" onkeyup="this.value=NumText(this.value)" required value="<?= $Noti->Titulo?>"> 
@@ -73,7 +64,7 @@ foreach ($Noticia->result() as $Noti) {
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
-                                                                <label style="color: #000000">Descripción de Pubicacion</label>
+                                                                <label style="color: #000000">Descripción de Pubicación</label>
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control" id="val-name " name="Descripcion_Noticia" placeholder="Descripcion de la Noticia" onkeyup="this.value=NumText(this.value)" required value="<?= $Noti->Descripcion_Noticia?>">
@@ -96,7 +87,7 @@ foreach ($Noticia->result() as $Noti) {
                                                                    </div>
                                                                </div>
                                                              <div class="col-md-12">
-                                                                <label style="color: #000000">Contenido de Pubicacion</label>
+                                                                <label style="color: #000000">Contenido de Pubicación</label>
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <textarea rows="8" cols="80" class=" form-control  form-control" rows="15" style="height:300px" type="text" class="form-control" id="val-name " name="contenido"  onkeypress="this.value=NumText(this.value)"placeholder="Descripción o contenido" required>
@@ -108,7 +99,7 @@ foreach ($Noticia->result() as $Noti) {
                                                             </div>
                                                             <div class="col-md-12">
                                                             <div>
-                                                            <label style="color: #000000">Imagen de Pubicacion</label>
+                                                            <label style="color: #000000">Imagen de Pubicación</label>
 
                                                            
                                                             </div>
@@ -159,9 +150,7 @@ if(input.files && input.files[0]){
     var reader = new FileReader(); 
     reader.readAsDataURL(input.files[0]);
     reader.onload =function(e) {
-            //$('#formAnuncio + img').remove();
-            //$('#formAnuncio').after('<div class="col-md-4"><img  src="'+e.target.result+'"  width="450" height="300" id="vista"/>');
-            //$('#formAnuncio').innerHTML='<div class="col-md-4"><img  src="'+e.target.result+'"  width="450" height="300" id="vista"/>';
+           
             document.getElementById('mostrarI').innerHTML='<img  src="'+e.target.result+'"  width="200" height="200" id="vista" alt="Imagen a publicar"/>';
     }
     }

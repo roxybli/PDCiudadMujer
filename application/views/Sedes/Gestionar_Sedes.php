@@ -1,4 +1,5 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+
  <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-primary">Inicio</h3> </div>
@@ -15,19 +16,16 @@
 <div class="container-fluid">
     <div class="row">
                     <div class="col-lg-12">
+                        <div class="card TituloUser" style="height: 60px">
+                                    <h3 class="responsive" style="color:white; font-weight:bold;">Gestión de sedes</h3>  
+                                </div>
                         <div class="card">
-
-
-
 <!-- Modal insert -->
 <div class="modal fade" id="ModalInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Insertar una nueva Sede</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-header" style="background: #a4cb3a">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff; font-style: bold">Insertar una nueva Sede</h5>
       </div>
       <div class="modal-body">
        <div class="form-validation">
@@ -38,14 +36,15 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="input-group">   
-                                <input type="text" class="form-control" id="val-name" name="Nombre_Sede" placeholder="Nombre de la Sede" onkeyup="this.value=NumText(this.value)" required>
+                                <input type="text" class="form-control" id="val-name" name="Nombre_Sede" placeholder="Nombre de la Sede">
                             </div>
                         </div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Sedes/'">Regresar</button>
+                        <div align="right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Sedes/'"><i class="fa fa-close" aria-hidden="true"></i>Regresar</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
-
+                </div>
             </form>
         </div>
       </div>
@@ -58,11 +57,8 @@
 <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Editar Información de las Sedes</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-header" style="background: #a4cb3a">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff; font-style: bold">Editar Información de las Sedes</h5>
       </div>
       <div class="modal-body">
        <!-- Bread crumb -->
@@ -71,12 +67,13 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="input-group">   
-                                <input type="text" class="form-control" id="val-name" id="Nombre_Sede2" name="Nombre_Sede2" placeholder="Nombre de la Sede" onkeyup="this.value=NumText(this.value)" required>
+                                <input type="text" class="form-control" id="val-name" id="Nombre_Sede2" name="Nombre_Sede2" placeholder="Nombre de la Sede">
                                 <input type="text" hidden name="ID" id="ID">
                             </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Sedes/'">Regresar</button>
+                        </div><div align="right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Sedes/'"><i class="fa fa-close" aria-hidden="true"></i>Regresar</button>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editar</button>
+                    </div>
                     </div>
                 </div>
 
@@ -88,21 +85,19 @@
     </div>
   </div>
 </div>
+<div align="right" style="margin:0 ,0,0; padding: 0,0,0; height: 60px">
+                                    <a class="btn btn-success" style="color:white; padding:10px; margin: 20px;  background-color:#1A237E" data-toggle="modal" data-target="#ModalInsert" ><i class="fa fa-plus-circle" style="margin:10px;" aria-hidden="true"></i>Crear nueva Sede</a>
+                                </div> 
 
-
-                            <div class="card TituloUser">
-                                    <h3 class="responsive" style="color:white; font-weight:bold;">Gestión de Sedes</h3>  
-                                </div>
                             <div class="card-body">
                                 <div class="table-responsive m-t-40">
-                                    <a class="btn btn-success" style="color:white; padding:10px; margin: 20px;  background-color:#512da8" data-toggle="modal" data-target="#ModalInsert"><i class="fa fa-plus-circle" style="margin:10px;" aria-hidden="true"></i>Crear nueva Sede</a>
-                                    
-                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="90%" align="center">
+                                     <h2  style="color: #000000; font-size: medium; padding-top: 0px">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h2>   
+                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" >
                                         <thead>
                                             <tr>
-                                                <th width="10%">No</th>
-                                                <th width="40%">Nombre de la Sede</th>
-                                                <th width="20%">Acción</th>
+                                                <th >No</th>
+                                                <th >Nombre de la Sede</th>
+                                                <th >Accion</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -114,11 +109,7 @@
                                                     echo "<td id='nom' style='color: #000000'>".$Sedes->Nombre_Sede."</td>";
                                                     $nombre = "'".$Sedes->Nombre_Sede."'";
                                                     $ime++;
-
-                                                    //echo "<td><a onclick='Eliminar($Sedes->PK_Id_Sede)' class='btn btn-danger m-b-10 m-l-5'><i style='color:white;' class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
-                                                   // echo '<td><a onclick="editar('.$Sedes->PK_Id_Sede.','.$nombre.')" class="btn btn-warning m-b-10 m-l-5" style="color:white;" data-toggle="modal" data-target="#ModalEdit"><i style="color:white;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>';
-
-                                                         echo '<td><div class="dropdown" align="center">
+                                                           echo '<td><div class="dropdown" align="center">
                                                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i><span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a onclick="Eliminar('.$Sedes->Pk_Id_Sede.')" ><i class="fa fa-trash fa-lg"></i></a>Eliminar</li>

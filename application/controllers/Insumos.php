@@ -186,17 +186,16 @@ class Insumos extends CI_Controller {
 		    <div id='cabecera'>
 			<div id='img'>
 				<img src='".base_url()."plantilla/img_perfil/".$this->session->userdata('fotoUsuaria')."'>
-		    </div><p style='font-weight: bold; text-align:right;'> FECHA DE CREACIÓN:  $fecha</p>
+		    </div>
 		    <div class='textoCentral'>REPORTE DE INSUMOS <br>
 			       ".strtoupper($this->session->userdata('nombreNegocio'))."      
 		    ";
 		foreach ($datos->result() as $user)
 	        {}
 		$html .="
-		  <br><strong style='font-weight: bold; text-align:center;'>PROPIETARIA: <br> ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br></div><br>
+		  <br><strong style='font-weight: bold; text-align:center;'>PROPIETARIA:  ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br>FECHA DE CREACION: ".$fecha."</p></div><br>
 		</div>    
 		<div class='table-responsive container'>
-		      
 		        <table class='table table table-bordered'>
 		        <thead class='active' >
 		        <tr >
@@ -234,7 +233,7 @@ class Insumos extends CI_Controller {
 	        $this->load->library('M_pdf');
 	         $mpdf = new mPDF('c', 'A4'); 
 	         $estilos=file_get_contents(base_url()."plantilla/css/bootstrap.min.css");
-	         //echo $estilos;
+	        
 	         $mpdf->SetDisplayMode('fullpage');
 	         $mpdf->WriteHTML($estilos,1);
 	 

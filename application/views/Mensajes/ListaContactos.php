@@ -14,9 +14,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
-           <div style="background-color:#512da8; color:white; padding:10;">
-<h3  style="color:white; padding: 10px;  " class=" text-center"><b> Lista de Contactos</b></h3>
+           <div class="card-title TituloUser" style="height: 60px">
+<h3 class="responsive" style="color:white; font-weight:bold;"> Lista de Contactos</h3>
 </div>
                 <table class="table">
                       <thead>

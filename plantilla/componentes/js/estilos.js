@@ -202,7 +202,7 @@ $(function(){
 				$("#tablaInsumos").append(datos);
 			}
 				
-		    	boton = '<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-share-square-o f-s-20"></i> Guardar Insumos</button> ';
+		    	boton = '<div align="right"><button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-share-square-o f-s-20"></i> Guardar Insumos</button></div> ';
 		    	//boton2 = ' <a ><button type="button" class="btn btn-primary btn-flat m-b-30 m-t-30"> <i class="fa fa-ban f-s-20"></i> Cancelar </button></a>';
 		    	$("#tablaInsumos").append(boton);
 		    	$("#tablaInsumos").append(boton2);
@@ -468,7 +468,7 @@ $("#btnCapitalRubros").click(function() {
 
 
 				
-		    	boton = '<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-share-square-o f-s-20"></i> Guardar Datos</button> ';
+		    	boton = '<div class="col-md-12" align="right"><button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-share-square-o f-s-20"></i> Guardar</button></div> ';
 		    	$("#elementoSR").append(boton);
 		}
 		else

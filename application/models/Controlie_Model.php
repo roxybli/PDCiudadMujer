@@ -11,7 +11,6 @@ public function guardarIE($datos=null, $idUsuario)
 		$egresosD= $datos['egresosD'];
 		$fecha= $datos['fechaIE'];
 		@$estadoE= $datos['estadoE'];
-
 		$ingresoTotal = 0;
 		$contadorI = 0;
 		$contadorE = 0;
@@ -82,7 +81,6 @@ public function guardarIE($datos=null, $idUsuario)
 		return false;
 	}
 
-
 	public function obtenerIngreso($fecha, $id)
 	{
 		$sql = "SELECT Total_Ingreso FROM tbl_Balance WHERE Fecha_Balance = '$fecha' AND FK_Id_Usuario='$id'";
@@ -111,7 +109,6 @@ public function guardarIE($datos=null, $idUsuario)
 
 	public function resumenIngresos($id, $i, $f)	
 	{
-		//$sql ="SELECT DISTINCT Nombre_Ingreso  FROM tbl_Ingresos WHERE FK_Id_Usuario = '$id'";
 		$sql ="SELECT i.PK_Id_Ingreso, i.FK_Id_Usuario, i.Nombre_Ingreso, i.Cantidad_Ingreso, i.Fecha_Ingreso, u.Nombre, u.Apellido FROM tbl_Ingresos as i INNER JOIN tbl_Usuarias as u ON(i.FK_Id_Usuario = u.pk_Id_Usuaria) WHERE FK_Id_Usuario = '$id' AND DATE(Fecha_Ingreso) BETWEEN '$i' AND '$f'";
 		$ingresos = $this->db->query($sql);
 		return $ingresos;
@@ -119,7 +116,6 @@ public function guardarIE($datos=null, $idUsuario)
 
 	public function resumenEgresos($id, $i, $f)
 	{
-		//$sql ="SELECT DISTINCT Nombre_Egreso FROM tbl_Egresos WHERE FK_Id_Usuario = '$id'";
 		$sql ="SELECT * FROM tbl_Egresos WHERE FK_Id_Usuario = '$id' AND DATE(Fecha_Egreso) BETWEEN '$i' AND '$f'";
 		$datos = $this->db->query($sql);
 		return $datos;
@@ -145,7 +141,6 @@ public function guardarIE($datos=null, $idUsuario)
 	{
 		$ingreso = $datos['totalIngresos'];//
 		$egreso = $datos['egresoS'];
-		//$egresoCantidad = $datos['cantidadEgreso'];
 		$fecha = $datos['fechaEgresos'];
 		$restaIE = $ingreso;
 
@@ -184,6 +179,21 @@ public function guardarIE($datos=null, $idUsuario)
 		$datos = $this->db->query($sql);
 		return $datos;
 	}
+
+	public function estadisticaIE($id, $i, $f)
+	{
+		$sql = "SELECT Cantidad_Ingreso as 'Total', Fecha_Ingreso, Nombre_Ingreso, Cantidad_Ingreso FROM tbl_Ingresos WHERE FK_Id_Usuario='$id' AND DATE(Fecha_Ingreso) BETWEEN '$i' AND '$f' ";
+		$datos = $this->db->query($sql);
+		return $datos;
+	}
+
+	public function estadisticaIEE($id, $i, $f)
+	{
+		$sql = "SELECT Cantidad_Egreso as 'Total', Fecha_Egreso, Nombre_Egreso, Cantidad_Egreso FROM tbl_Egresos WHERE FK_Id_Usuario='$id' AND DATE(Fecha_Egreso) BETWEEN '$i' AND '$f' ";
+		$datos = $this->db->query($sql);
+		return $datos;
+	}
+
 
 }
 

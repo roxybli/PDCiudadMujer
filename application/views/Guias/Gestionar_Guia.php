@@ -19,14 +19,14 @@ foreach ($Guia->result() as $guia) {
 <div class="container-fluid">
     <div class="row">
                     <div class="col-lg-12">
-                        
-                    <div class="card">
-                            <div class="card-body">
-                                <div class="card TituloUser">
+                        <div class="card TituloUser" style="height: 60px">
                                     <h3 class="responsive" style="color:white; font-weight:bold;">Gestión de Guias Multimedia</h3>  
                                 </div>
+                    <div class="card">
+                            <div class="card-body">
+                                
                                 <div class="table-responsive m-t-40">
-                                    <h6 class="card-subtitle" style="color: #000000">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h6>
+                                    <h4 style="color: #000000">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h4>
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead >
                                             <tr >
@@ -42,11 +42,13 @@ foreach ($Guia->result() as $guia) {
                                         <?php
                                         $ime=1;
                                                 foreach ($Guia->result() as $guia){ 
+                                                    $fecha = new DateTime($guia->Fecha_Publicacion);
+                                                    $fecha = $fecha->format("d-m-Y");
                                                     echo "<tr>";  
                                                     echo "<td id='ni' style='color: #000000'>".$ime."</td>";  
                                                     echo "<td id='nom' style='color: #000000'>".$guia->Titulo_Guia."</td>";
                                                     echo "<td id='cat' style='color: #000000'>".$guia->Nombre."</td>";
-                                                    echo "<td id='cat' style='color: #000000'>".$guia->Fecha_Publicacion."</td>";
+                                                    echo "<td id='cat' style='color: #000000'>".$fecha."</td>";
                                                     echo "<td id='cat' style='color: #000000'>".$guia->Tipo_publicacion."</td>";
                                                     $ime++;
                                                     $id=$guia->pk_Id_Guia;

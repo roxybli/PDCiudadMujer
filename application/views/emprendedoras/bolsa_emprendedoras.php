@@ -14,22 +14,23 @@
     <!--Indicators-->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-2" data-slide-to="1"></li>
-        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1" data-interval="2000"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2" data-interval="2000"></li>
+       
     </ol>
     <!--/.Indicators-->
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="view">
-                <img class="d-block w-100" height="300" src="<?= base_url()?>plantilla/Imagenes_Slider/ae_1.jpg" alt="First slide">
+                <img class="d-block w-100" height=h-100 src="<?= base_url()?>plantilla/Imagenes_Slider/ae_1.jpg" alt="First slide">
                 <div class="mask rgba-black-light"></div>
             </div>
         </div>
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" height="300" src="<?= base_url()?>plantilla/Imagenes_Slider/ae_2.jpg" alt="Second slide">
+                <img class="d-block w-100" height=h-100 src="<?= base_url()?>plantilla/Imagenes_Slider/ae_11.jpg" alt="Second slide">
                 <div class="mask rgba-black-strong"></div>
             </div>
            
@@ -37,9 +38,11 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" height="300" src="<?= base_url()?>plantilla/Imagenes_Slider/ae_3.jpg" alt="Third slide">
+                <img class="d-block w-100" height=h-300 src="<?= base_url()?>plantilla/Imagenes_Slider/ae_7.jpg" alt="Third slide">
                 <div class="mask rgba-black-slight"></div>
             </div>
+
+
          
         </div>
     </div>
@@ -58,18 +61,25 @@
 </div>
 <!--/.Carousel Wrapper-->
        <div id="filtros" class="col-lg-22 card">
-
-       <div class="input-group input-group-rounded has-success">
-            <input id="NombreB" name="NombreB" type="text" placeholder="Buscar por nombre del negocio" class="form-control" onkeyup="this.value=NumText(this.value)">
-                <span class="input-group-btn"><span class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></span></span>
-        </div>
+       <div align="right">
         <div class="col-lg-3">
             <a onclick="Mostrar()" style="color:white; margin:10px;" class="btn btn-warning m-b-10 m-l-5"><i class="fa fa-filter" aria-hidden="true"></i>
-Filtrar</a>
-       </div>
-           <div id="Filtros"  class="form-group has-success">                  
+              Filtros personalizados</a>
+       </div></div>
+           <div id="Filtros"  class="form-group has-success" style=display:none>                  
                  <div class="bordes">
                     <div class="row">
+             <div class="col-lg-4">
+                             <div class="input-group input-group">
+                                <div class="form-group">
+                                     <label class="control-label">Buscar por nombre del negocio</label>
+                   <div class="input-group input-group-rounded has-success">
+                  <input id="NombreB" name="NombreB" type="text" placeholder="Nombre del negocio" class="form-control" onkeyup="this.value=NumText(this.value)">
+                  <span class="input-group-btn"><span class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></span></span>
+                  </div>
+                                </div>
+                              </div>
+                        </div>
                          <div class="col-lg-4">
                              <div class="input-group input-group">
                                 <div class="form-group">
@@ -79,8 +89,8 @@ Filtrar</a>
                                                   echo "<option value=''>Seleccione una sede</option>";
                                                   foreach ($sedes->result() as $Sede) {
 
-                                                   echo "<option value=".$Sede->Nombre_Sede.">".$Sede->Nombre_Sede."</option>";
-                                                    }
+                                                   echo "<option value=\"".$Sede->Nombre_Sede."\">".$Sede->Nombre_Sede."</option>";
+                                                  }
                                                ?>
                                             </select>
                                 </div>
@@ -95,7 +105,7 @@ Filtrar</a>
                                                   echo "<option value=''>Seleccione un rubro</option>";
                                                   foreach ($rubros->result() as $rubro) {
 
-                                                   echo "<option value=".$rubro->Nombre_Rubro.">".$rubro->Nombre_Rubro."</option>";
+                                                   echo "<option value=\"".$rubro->Nombre_Rubro."\">".$rubro->Nombre_Rubro."</option>";
                                                     }
                                                ?>
                                             </select>
@@ -106,10 +116,11 @@ Filtrar</a>
                        
                         
                     </div>
-                     <div class="row">
-                            <a class="btn btn-danger btn-small m-b-10 m-l-5" id="close" style="color:white;"><i class="fa fa-close"></i> cerrar filtros</a>
+                     <div align="right">
+                     <div class="row" align="right"style="margin-left: 1030px">
+                            <a class="btn btn-secondary" id="close" style="color:white;"><i class="fa fa-close"></i> Cerrar filtros</a>
                         </div>
-                    
+                     </div>
                  </div>
             </div>
         </div>
@@ -169,6 +180,8 @@ Filtrar</a>
     function main()
     {
         $('#NombreB').on("keyup", buscarN);
+        $('#Ssedes').on("change", buscarN);
+        $('#Srubro').on("change", buscarN);
         $("#close").on("click", function(){
             document.getElementById("Filtros").style.display='none';
 

@@ -20,6 +20,11 @@ class Mensajes extends CI_Controller {
 		$mensajes = $this->Mensajes_Model->verMensaje();
 		echo json_encode($mensajes);
 	}
+	public function VerMensajesC(){
+		$this->load->model('Mensajes_Model');
+		$mensajes = $this->Mensajes_Model->verMensajeC();
+		echo json_encode($mensajes);
+	}
 	public function EstadoMensajes(){
 		$id = $this->input->post('id');
 		$this->load->model('Mensajes_Model');

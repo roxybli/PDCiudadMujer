@@ -43,6 +43,7 @@
                 background:"#fff",
                 cursorborder:"1px solid #5c4ac7",
                 cursorborderradius:0
+                autohidemode: false
                 });  // a world f
           });
         </script>

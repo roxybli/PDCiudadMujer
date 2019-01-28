@@ -73,7 +73,7 @@
 																	   <input type="text" class="form-control" id="direccionN" name="direccionN" placeholder="Dirección del negocio"  onkeyup="this.value=NumText(this.value)" required>
 																	  
                                                                     </div>
-																	<a class="etiqueta2" href="https://www.google.com/maps" target="_blank">Ingrese a google maps haciendo click aqui.</a>
+																	<a class="etiqueta2 text-danger" href="https://www.google.com/maps" target="_blank" >Ingrese a google maps haciendo click aqui.</a>
                                                                 </div>
 																
                                                             </div>
@@ -110,7 +110,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6 btnCenter">
-                                                                 <a onclick="Atras()" class="btn btn-secundary" id="anterior" ><i class="fa fa-arrow-left"></i> regresar</a> 
+                                                                 <a onclick="Atras()" class="btn btn-secundary" id="anterior" ><i class="fa fa-arrow-left"></i> Regresar</a> 
                                                              </div>
                                                         <div class="col-md-6 btnCenter">
                                                              <a onclick="siguiente()" class="btn btn-info" id="siguiente">Siguiente  <i class="fa fa-arrow-right"></i></a>

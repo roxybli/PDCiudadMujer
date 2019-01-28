@@ -24,14 +24,15 @@ foreach ($info->result() as $Info) {
                 <!-- Start Page Content -->
                 <div class="row ">
                     <div class="col-sm-12">
-                        <div class="card">
-                                <div class="card TituloUser">
+                        <div class="card TituloUser" style="height: 60px">
                                   <h3 class="responsive" style="color:white; font-weight:bold;">Editar Usuaria</h3>
                                 </div>
+                        <div class="card">
+                                
                                 <div class="form-validation" style="margin:15px;">
                                         <!-- Bread crumb -->
                                           
-                                    <p style="color:#000000;"><b>Indicaciones</b><br>Todos los campos son requeridos</p>
+                                    <p class="text-danger"><b>Indicaciones</b><br>(*) Todos los campos son requeridos.</p>
 					                                <form  action="<?=base_url()?>Emprendedoras/EditarUsuaria" method="post" id="FormUsuarias" class="FormUsuarias">
 
                                                         <div class="row ">
@@ -141,9 +142,20 @@ foreach ($info->result() as $Info) {
                                                                         <input type="text" class="form-control" id="dui"  name="dui" placeholder="# DUI" value="<?= $Info->Dui?>"  onkeypress="return numeros(event, 'num')" required>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <!--/span-->
+                                                            </div> 
                                                         </div>
+                                                        <div class="row ">
+
+                                                     <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <div class="input-group">
+                                                                                        <input type="hidden"  class="form-control"  id="pass4" name="pass4"  value="<?php  echo $Info->pk_Id_Usuaria;?>">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                            <!--/span-->
+                                                       
                                                         <!--/row-->
                                                         </div>
                                                         <div class="row">

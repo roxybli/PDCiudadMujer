@@ -1,10 +1,8 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles" >
     <div class="col-md-4 align-self-center">
         <a href="<?= base_url() ?>capital"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver </h3></a>
     </div>
-
      <div class="col-md-5 align-center">
-        <h2 style="color: #fff">Negocios disponibles</h2>
      </div>
 
     <div class="col-md-3 align-self-center">
@@ -15,6 +13,9 @@
     </div>
 </div>
 <div class="container-fluid">
+    <div class="card TituloUser" style="height: 60px">
+        <h3 class="responsive" style="color:white; font-weight:bold;">Negocios disponibles</h3>
+    </div>
     <div class="card">
         <div class="card-title">
         </div>

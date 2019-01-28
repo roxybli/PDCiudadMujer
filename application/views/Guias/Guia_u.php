@@ -12,11 +12,9 @@
             <div class="card">
                 <div class="tab-content">
                     <div class="tab-pane active" id="home" role="tabpanel">
-                        <div class="row card-title degradado_lineal ">
-                            <h1  class="encabezado">
-                                <?php echo $GuiaU->Titulo_Guia;?></h1><hr> 
-
-                                 
+                        <div class="card-title TituloUser">
+                            <h3 class="responsive" style="color:white; font-weight:bold;">
+                                <?php echo $GuiaU->Titulo_Guia;?></h3>       
                         </div>
                         
                         <div class="card-body">
@@ -29,22 +27,22 @@
                                                 <div class="m-t-20 row">
                                                         <div class="col-md-11 col-xs-12 contenido ">
                                                         <div class="DivDescarga row">
-                                                             <?php echo $GuiaU->Descripcion_Guia;?>
+                                                             <p><?php echo $GuiaU->Descripcion_Guia;?></p>
                                                         </div><br><br>
                                                         <div class="row" align="center"> 
-                                                            <img  width="720px"  src="<?= base_url()?>plantilla/Documentos/<?= $GuiaU->Imagen?>">
+                                                            <img  style="width:720px; margin-left: 150px" align="center" src="<?= base_url()?>plantilla/Documentos/<?= $GuiaU->Imagen?>">
                                                         </div><br><br>
                                                             <div class="DivDescarga row contenido" >
-                                                             <?php echo $GuiaU->Contenido;?></div>
-                                                        <div class="DivDescarga row">
+                                                             <?php echo $GuiaU->Contenido;?></div><br>
+                                                        <div class="DivDescarga row" align="center">
                                                         <?php
                                                         if($GuiaU->Tipo_publicacion=="Documento"){
-                                                            echo '<a href="'.base_url().'plantilla/Documentos/'.$GuiaU->Documento_Guia.'" class ="btn btn-info btn-md" style="color:white; padding:25px;"><i class="fa fa-download fa-2x" ></i> Descargar Documento</a>';
+                                                            echo '<a href="'.base_url().'plantilla/Documentos/'.$GuiaU->Documento_Guia.'" class ="btn btn-info btn-md " style="color:white; padding:25px; padding-top:30px; target="_blank""><i class="fa fa-download fa-2x" ></i> Descargar Documento</a>';
 
                                                         }
                                                         else if($GuiaU->Tipo_publicacion=="Video"){
                                                            
-                                                            echo "<iframe align='center' width='570' height='415' src='https://www.youtube.com/embed/". $GuiaU->Video_Multimedia."?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+                                                            echo "<iframe style='margin-left:200px' width='570' height='415' src='https://www.youtube.com/embed/". $GuiaU->Video_Multimedia."?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
                                                         }
 
@@ -53,7 +51,8 @@
                                                         </div><br><br>
                                                          <div>
                                                             <div>
-                                                                 <span ><p style="color:#004d40;"><i class="fa fa-check" style="margin:10px; color:#004d40;"></i>Publicado por <?= $GuiaU->Nombre?><span><p style="color:#004d40;"><i class="fa fa-calendar" style="margin:10px; color:#004d40;"></i>Fecha de publicacion <?= $fecha?></p><br></span></p><br></span>
+                                                                 <span ><p ><i class="fa fa-user" style="margin:10px; "></i>Publicado por: <?= $GuiaU->Nombre?>
+                                                                 <span><p ><i class="fa fa-calendar" style="margin:10px; "></i>Fecha de publicacion: <?= $fecha?></p><br></span></p><br></span>
                                                             </div>
                                                         </div>
                                                         </div>

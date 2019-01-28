@@ -17,14 +17,15 @@
                 <!-- Start Page Content -->
                 <div class="row ">
                     <div class="col-sm-12">
-                        <div class="card">
-                                <div class="card TituloUser">
-                                    <h3 class="responsive" style="color:white; font-weight:bold;">Crear reportes de usuarias</h3>
+                        <div class="card TituloUser">
+                                    <h3 class="responsive" style="color:white; font-weight:bold;">Crear Reportes de Usuarias</h3>
                                 </div>
+                        <div class="card">
+                                
                                 <div class="row">
                                 <div class="col-md-4">
                                  <div class="card" style="padding:0px;">
-                                 <div class="encabezado1" id="Div1" onclick="Abrir(1)">
+                                 <div class="encabezado1" id="Div1"style="background-color:#01579B; color:white;"   onclick="Abrir(1)">
                                  Reportes por periodo de años
                                  </div>
                                     <div id="divP" style="display:none;">
@@ -105,7 +106,7 @@
                                         </div>
                                      </div>
                                      <div class="row" >
-                                     <a onclick="cancelar()" style="margin:0 auto; font-weight:bold;" class="btn btn-success"><i class="fa fa-close" style="margin:10px;"></i> Cancelar</a>
+                                     <a onclick="cancelar()" style="margin:0 auto; font-weight:bold; color: white" class="btn btn-secondary"><i class="fa fa-close" style="margin:10px;"></i> Cancelar</a>
 
                                          <button style="margin:0 auto; font-weight:bold; background-color:#FF5252; color:white;" class="btn " ><i class="fa fa-file" style="margin:10px;"></i> Generar pdf</button>
                                      </div>
@@ -116,7 +117,7 @@
                                 </div>
                                 <div class="col-md-4">
                                  <div class="card" style="padding:0px;">
-                                 <div class="encabezado2" id="Div2" onclick="Abrir(2)">
+                                 <div class="encabezado2" id="Div2" style="background-color:#1B5E20; color:white;"  onclick="Abrir(2)">
                                     Reporte por año en especifico
                                  </div>
                                  <div id="divP2"  style="display:none; padding:10px;">
@@ -177,7 +178,7 @@
                                         </div>
                                      </div>
                                      <div class="row" >
-                                     <a onclick="cancelar()" style="margin:0 auto; font-weight:bold;" class="btn btn-success"><i class="fa fa-close" style="margin:10px;"></i> Cancelar</a>
+                                     <a onclick="cancelar()" style="margin:0 auto; font-weight:bold;color: white" class="btn btn-secondary"><i class="fa fa-close" style="margin:10px;"></i> Cancelar</a>
                                          <button style="margin:0 auto; font-weight:bold; background-color:#FF5252; color:white;" class="btn "><i class="fa fa-file" style="margin:10px;"></i> Generar pdf</button>
                                      </div>
                                  </form>
@@ -189,7 +190,7 @@
                                 </div>
                                 <div class="col-md-4">
                                  <div class="card" style="padding:0px;">
-                                 <div class="encabezado3" id="Div3" onclick="Abrir(3)">
+                                 <div class="encabezado3" id="Div3" style="background-color:#546E7A; color:white;"  onclick="Abrir(3)">
                                     Reportes general
                                  </div>
 
@@ -234,7 +235,7 @@
                                      ?>
                                      <br>
                                       <div class="col-md-12" >
-                                        <a onclick="cancelar()" style="margin:0 auto; font-weight:bold;" class="btn btn-success"><i class="fa fa-close" style="margin:10px;"></i> Cancelar</a>
+                                        <a onclick="cancelar()" style="margin:0 auto; font-weight:bold;color: white" class="btn btn-secondary"><i class="fa fa-close" style="margin:10px;"></i> Cancelar</a>
                                          <button style="margin:0 auto; font-weight:bold; background-color:#FF5252; color:white;" class="btn "><i class="fa fa-file" style="margin:10px;" ></i> Generar pdf</button>
                                      </div>
                                         </div>

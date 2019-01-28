@@ -20,7 +20,7 @@ class Reportes extends CI_Controller {
 		{
 			$this->load->library('M_pdf');
 	        //$data = [];
-	        $hoy = date("d / M / Y");
+	        $hoy = date("d/m/Y");
 	         foreach ($data->result() as $datos)
 		        {}
 			$html="
@@ -91,7 +91,7 @@ class Reportes extends CI_Controller {
 				    if($dato['sede']==""){
 						$html.="
 							    CIUDAD MUJER, EL SALVADOR<br>
-							    TODAS LAS SEDES<br>
+							     SEDE: ".strtoupper($datos->Nombre_Sede)."<br>
 								    REPORTE GENERAL DE USUARIAS
 								    <br>FECHA DE CREACION: ".$hoy."</p>";
 
@@ -102,15 +102,14 @@ class Reportes extends CI_Controller {
 							    SEDE: ".strtoupper($datos->Nombre_Sede)."<br>
 								    REPORTE GENERAL DE USUARIAS
 								    <br>FECHA DE CREACION: ".$hoy."</p>";
-
 					}
 
 				    $html.="</div>
 			    			</div>";
-			$html .= "<br>
+			$html .= "
 			    <strong style='font-weight: bold;'></strong>
-			</div>
-			<br> 
+			</div><br>
+			
 			<div class='table-responsive container'>
 			        <table class='table table table-bordered'>
 			        <thead class='active' >
@@ -122,7 +121,7 @@ class Reportes extends CI_Controller {
 	                    <th>DUI</th>
 	                    <th>Direccion</th>
 	                    <th>Telefono</th>
-	                    <th>Sede</th>
+	                    
 	                </tr>
 			        </thead>
 			        <tbody>";
@@ -139,7 +138,7 @@ class Reportes extends CI_Controller {
                            	<td>".$filaDatos->Dui."</td>
                            	<td>".$filaDatos->Direccion."</td>
                            	<td>".$filaDatos->Telefono."</td>
-                           	<td>".$filaDatos->Nombre_Sede."</td>
+                          
                            </tr>";
                            $ime++;
                             }
@@ -150,7 +149,7 @@ class Reportes extends CI_Controller {
 
 		 
 
-		         $pdfFilePath = "resumen de inventario.pdf";
+		         $pdfFilePath = "resumen_general_usuarias.pdf";
 		         //load mPDF library
 		        $this->load->library('M_pdf');
 		         $mpdf = new mPDF('c', 'A4'); 
@@ -191,7 +190,7 @@ class Reportes extends CI_Controller {
 
 	        //$data = [];
 
-	        $hoy = date("d / M / Y");
+	        $hoy = date("d/m/ Y");
 	         foreach ($data->result() as $datos)
 		        {}
 			$html="
@@ -265,7 +264,7 @@ class Reportes extends CI_Controller {
 				    if($dato['sede']==""){
 						$html.="
 							    CIUDAD MUJER, EL SALVADOR<br>
-							    TODAS LAS SEDES<br>
+							    SEDE: ".strtoupper($datos->Nombre_Sede)."<br>
 								    REPORTE GENERAL DE USUARIAS DEL AÑO ".$dato['Año_Ingreso']."
 								    <br>FECHA DE CREACION: ".$hoy."</p>";
 
@@ -280,7 +279,7 @@ class Reportes extends CI_Controller {
 
 				    $html.="</div>
 			    </div>";
-			$html .= "<br>
+			$html .= "
 			    <strong style='font-weight: bold;'></strong>
 			</div>
 			<br> 
@@ -322,7 +321,7 @@ class Reportes extends CI_Controller {
 
 		 
 
-		         $pdfFilePath = "resumen de inventario.pdf";
+		         $pdfFilePath = "resumen_anual_usuarias.pdf";
 		         //load mPDF library
 		        $this->load->library('M_pdf');
 		         $mpdf = new mPDF('c', 'A4'); 
@@ -363,7 +362,7 @@ class Reportes extends CI_Controller {
 
 	        //$data = [];
 
-	        $hoy = date("d / M / Y");
+	        $hoy = date("d/m/Y");
 	         foreach ($data->result() as $datos)
 		        {}
 			$html="
@@ -437,8 +436,8 @@ class Reportes extends CI_Controller {
 				    if($dato['sede']==""){
 						$html.="
 							    CIUDAD MUJER, EL SALVADOR<br>
-							    TODAS LAS SEDES<br>
-								REPORTE GENERAL DE USUARIAS DEL AÑO ".$dato['Año_Ingreso']." AL ".$dato['Año_Fin']."
+							    SEDE: ".strtoupper($datos->Nombre_Sede)."<br>
+								REPORTE GENERAL DE USUARIAS DEL AÑO ".$dato['Año_Ingreso']." HASTA ".$dato['Año_Fin']."
 								<br>FECHA DE CREACION: ".$hoy."</p>";
 
 					}
@@ -446,13 +445,13 @@ class Reportes extends CI_Controller {
 						$html .="
 							    CIUDAD MUJER, EL SALVADOR<br>
 							    SEDE: ".strtoupper($datos->Nombre_Sede)."<br>
-								REPORTE GENERAL DE USUARIAS DEL AÑO ".$dato['Año_Ingreso']." AL ".$dato['Año_Fin']."
+								REPORTE GENERAL DE USUARIAS DEL AÑO ".$dato['Año_Ingreso']." HASTA ".$dato['Año_Fin']."
 								<br>FECHA DE CREACION: ".$hoy."</p>";
 					}
 
 				    $html.="</div>
 			    </div>";
-			$html .= "<br>
+			$html .= "
 			    <strong style='font-weight: bold;'></strong>
 			</div>
 			<br> 

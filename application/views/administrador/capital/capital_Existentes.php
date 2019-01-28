@@ -1,9 +1,8 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles">
     <div class="col-md-4 align-self-center">
         <a href="<?=base_url() ?>inventario/"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver </h3></a>
      </div>
-     <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Negocios disponibles </h3>
+     <div class="col-md-3 align-center"> 
      </div>
     <div class="col-md-3 align-self-center">
         <ol class="breadcrumb">
@@ -17,16 +16,11 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
+            <div class="card Titulouser">
+        <h3 class="responsive" style="color:white; font-weight:bold;">Negocios disponibles </h3>
+     </div>
             <div class="card-title">
-                <!--<div class="form-group">
-                    <div class="input-group">
-                        <a href="" title="Buscar Insumo"><button class="btn btn-primary"><i class="fa fa-search f-s-20"></i></button></a>
-                        <input type="text" class="form-control" id="insumoB" name="" placeholder="Insumo a buscar">  
-                        <div class="input-group-addon">
-                        <a href="<?= base_url() ?>insumos/" title="Agregar Insumo"><button class="btn btn-primary"><i class="fa fa-plus f-s-20"></i></button></a>
-                        </div>
-                    </div>
-                </div>-->
+
             </div>
             <div class="card-body">
                 <div class="table-responsive">

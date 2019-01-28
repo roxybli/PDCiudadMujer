@@ -46,8 +46,6 @@ class Controlie extends CI_Controller {
 
 			$data = array('ingresos' => $ingresos, 'egresos' => $egresos);
 		}
-
-
 		$this->load->view('administrador/controlie/control_ie', $data);
 		$this->load->view('administrador/base/footer2');
 
@@ -62,7 +60,6 @@ class Controlie extends CI_Controller {
 	public function guardarDatos()
 	{
 		$datos = $this->input->post();
-
 		// Buscando posiciones vacias en los ingresos
 		$contadorIngresosN=0;
 		$contadorIngresosD=0;
@@ -118,9 +115,9 @@ class Controlie extends CI_Controller {
 				{
 					if ($bool)
 					{
-						//$fecha = $datos['fechaIE'];
+						
 						echo '<script type="text/javascript">
-						self.location ="'.base_url().'controlie/procesarIE"
+						self.location ="'.base_url().'controlie/balances"
 						</script>';
 
 					}
@@ -279,7 +276,7 @@ class Controlie extends CI_Controller {
 			    <div id='cabecera'>
 			    <div id='img'>
 					<img src='".base_url()."plantilla/img_perfil/".$this->session->userdata('fotoUsuaria')."'>
-		    </div><p style='font-weight: bold; text-align:right;'> FECHA DE CREACIÓN:  $fecha</p>
+		    </div>
 		    <div class='textoCentral'>REPORTE DE BALANCES DE INGRESOS Y EGRESOS <br>
 			       ".strtoupper($this->session->userdata('nombreNegocio'))."      
 		    ";
@@ -287,7 +284,7 @@ class Controlie extends CI_Controller {
 		        {}
 
 			$html .= "<br>
-			    <strong style='font-weight: bold;text-align:center;'>PROPIETARIA: ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br></div><br>
+			    <strong style='font-weight: bold;text-align:center;'>PROPIETARIA: ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br>FECHA DE CREACION: ".$fecha."</p></div><br>
 			    </div>
 			</div>
 			<div class='table-responsive container'>
@@ -476,17 +473,17 @@ class Controlie extends CI_Controller {
 				    <div id='cabecera'>
 						<div id='img'>
 						<img src='".base_url()."plantilla/img_perfil/".$this->session->userdata('fotoUsuaria')."'>
-					    </div> <p style='font-weight: bold; text-align:right'>FECHA DE CREACIÓN: $fecha</p>
+					    </div>
 					    <div class='textoCentral'>REPORTE DE INGRESOS Y EGRESOS<br>
-						    ".strtoupper($this->session->userdata('nombreNegocio'))."<br>
+						    ".strtoupper($this->session->userdata('nombreNegocio'))."
 						    </p>   
 				    ";
 				    $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',];
 				    foreach ($ingresos->result() as $user) 
 				    {}
-				$html .= "<br><br><br>
-				<strong style='font-weight: bold; text-align:center;'>PROPIETARIA:".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )." <br>
-				    CORRESPONDIENTE AL MES DE: ".strtoupper($meses[$mes-1])."</strong></div>
+				$html .= "<br><br>
+				    CORRESPONDIENTE AL MES DE: ".strtoupper($meses[$mes-1])." <br>
+				<strong style='font-weight: bold; text-align:center;'>PROPIETARIA:".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )." </strong><br>FECHA DE CREACION: ".$fecha."</p></div>
 				</div>
 				<br>   
 				<div class='table-responsive container'>

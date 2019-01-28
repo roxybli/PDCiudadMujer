@@ -8,12 +8,13 @@ foreach ($eventos->result() as $event) {
 ?>
 <div class="container-fluid" id="DivEventList">
   <div class="row">
-     <div class="col-md-12">
+     <div class="col-md-12"><br>
+      <div class="card TituloUser" style="height: 60px">
+              <h3 class="responsive" style="color:white; font-weight:bold;">Editar Eventos</h3>  
+        </div>
        <div class="card">
           <div class="card-body">
-              <div class="card TituloUser">
-                                    <h3 class="responsive" style="color:white; font-weight:bold;">Editar Eventos</h3>  
-                                </div><br>
+             
            <form class="form-valide" action="<?= base_url()?>Eventos/ActualizarEvento" method="post">         
                 <div class="row ">
                 <div class="col-md-6">
@@ -51,11 +52,13 @@ foreach ($eventos->result() as $event) {
                             <textarea  class="form-control" style="height:150px;"  id="contenido_evento" name="contenido_evento" onkeypress="this.value=NumText(this.value)" placeholder="Descripcion del evento"><?= $event->contenido_evento?></textarea>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Eventos/'">Regresar</button></div>
-                        <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary">Guardar</button></div>
+                   <div class="row" align="right" style="margin-left: 830px">
+                        <div class="col-md-12" align="right" >
+                        <a  class="btn btn-secondary" style="color:white;margin:10px;" data-dismiss="modal" onclick="location.href='<?=base_url()?>Eventos/'"><i class="fa fa-close" ></i>Regresar</a>
+                        <button class="btn btn-primary" style="color:white;margin:10px;"><i class="fa fa-pencil-square-o"></i>Editar</button>
                 </div>
+            </div>
+            </div>
             </form>
           </div>
       </div> 

@@ -25,7 +25,7 @@
     <link href="<?=base_url() ?>plantilla/componentes/css/datepicker.css" rel="stylesheet">
 </head>
 <script>
-    setInterval("NMensajes()",1000);
+     setInterval("NMensajes()",1000);
     function NMensajes(){
       
       $.get("<?=base_url() ?>Mensajes/VerMensajes","",function(data){
@@ -66,6 +66,82 @@
     });
 
   }
+
+
+  
+  //Notificacion de eventos
+      setInterval("NEventos()",1000);
+    function NEventos(){
+      
+      $.get("<?=base_url() ?>Eventos/VerUltimoEvento","",function(data){
+      var json = JSON.parse(data);
+      var param=1;
+      document.getElementById('Num2').innerHTML=json.length;
+      if(json==""){
+     document.getElementById('noti3').style.display='none';
+         document.getElementById('noti4').style.display='none';
+        document.getElementById('Evento').innerHTML='<p>No hay nuevos eventos</p>';
+      }
+      else{
+        html=""
+     document.getElementById('noti3').style.display='block';
+         document.getElementById('noti4').style.display='block';
+       for (res in json){
+                html+='<a onclick="ver2('+json[res].id_evento+')"><div class="btn btn-info btn-circle m-r-10"><i class="fa fa-calendar-o"></i></div><div class="mail-contnet"><h5>'+json[res].titulo_evento+'</h5><span class="mail-desc">'+json[res].contenido_evento+'</span> <span class="time"></span></div></a>';
+               }
+               document.getElementById('Evento').innerHTML=html;
+      }
+    });
+  }
+  function ver2(id_m){
+        $.ajax({
+        url: '<?php echo base_url()?>Eventos/EstadoEvento',
+        type: "POST",
+        data: {id:id_m},
+        success:function(data){
+        }
+    });
+  }
+  
+  //Notificaciones Contactos/
+  setInterval("NMensajes()",1000);
+    function NMensajes(){
+      
+      $.get("<?=base_url() ?>Mensajes/VerMensajesC","",function(data){
+      //console.log(res);
+      var json = JSON.parse(data);
+      var param=1;
+      //console.log(json);
+      //alert(json.length);
+      document.getElementById('Num3').innerHTML=json.length;
+      if(json==""){
+        document.getElementById('noti5').style.display='none';
+         document.getElementById('noti6').style.display='none';
+        document.getElementById('MensajeC').innerHTML='<p>No tienes nuevos mensajes de contactos</p>';
+      }
+      else{
+        html=""
+         document.getElementById('noti5').style.display='block';
+         document.getElementById('noti6').style.display='block';
+       for (res in json){
+                html+='<a onclick="ver3('+json[res].PK_Id_Mensaje_Contacto+')"><div class="btn btn-info btn-circle m-r-10"><i class="fa fa-address-book"></i></div><div class="mail-contnet"><h5>'+json[res].Mensaje+'</h5></div></a>';
+               }
+               document.getElementById('MensajeC').innerHTML=html;
+      }
+    });
+  }
+  function ver3(id_m){
+        $.ajax({
+        url: '<?php echo base_url()?>Mensajes/EstadoMensajesC',
+        type: "POST",
+        data: {id:id_m},
+        success:function(data){
+        }
+    });
+  }
+  
+  
+  
 </script>
 
 <body class="fix-header fix-sidebar">
@@ -101,18 +177,8 @@
                     </li>
                     </ul>
                     <ul class="navbar-nav my-lg-0">
-                        <!-- Search -->
-                       <!-- <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search here"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-                        </li>-->
-                        <!-- Comment -->
-                       
-                        <!-- End Comment -->
-                        <!-- Messages -->
-
-                        <!-- Comments -->
-                        <li class="nav-item dropdown">
+               
+             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-comments"></i>
                                 <div class="notify"> <span id="noti1" style="display:none;" class="heartbit"></span> <span id="noti2" style="display:none;" class="point"></span> 
                                 </div>
@@ -134,20 +200,46 @@
                                 </ul>
                             </div>
                         </li>
-                        <!-- End Comments -->
-                        <!-- Messages -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
-                                <div class="notify"> <span id="noti1" style="display:none;" class="heartbit"></span> <span id="noti2" style="display:none;" class="point"></span> 
+            <!-- Eventos-->
+             <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-calendar-o"></i>
+                                <div class="notify"> <span id="noti3" style="display:none;" class="heartbit"></span> <span id="noti4" style="display:none;" class="point"></span> 
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
                                 <ul>
                                     <li>
-                                        <div class="drop-title">Tienes <span id="NumM"></span> Mensajes nuevos</div>
+                                        <div class="drop-title">Hay <span id="Num2"></span> Eventos Nuevos</div>
                                     </li>
                                     <li>
-                                        <div class="message-center" id="Mensaje" name="Mensaje">
+                                        <div class="message-center" id="Evento" name="Evento">
+                                            <!-- Message -->
+                                            <!--CONTENIDO DEL MENSAJE-->
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="<?= base_url()?>Eventos/"> <strong>Ver todos los eventos</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+            
+            
+          
+                        <!-- End Comments -->
+                        <!-- Messages -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
+                                <div class="notify"> <span id="noti5" style="display:none;" class="heartbit"></span> <span id="noti6" style="display:none;" class="point"></span> 
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Tienes <span id="Num3"></span> Mensajes nuevos</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center" id="MensajeC" name="Mensaje">
                                             <!-- Message -->
                                             <!--CONTENIDO DEL MENSAJE-->
                                         </div>
@@ -197,5 +289,4 @@
         }
          ?>
         <!-- Page wrapper  -->
-        <div class="page-wrapper">
-            
+<div class="page-wrapper">

@@ -7,10 +7,12 @@
         color:#000000;
     }
 </style>
-<div class="container">
-<div style="background-color:#512da8; color:white; padding:20;">
-<h3  style="color:white; padding: 30px; margin: 20px; " class=" text-center"><b> Mensajes de los visitantes de tu perfil</b></h3>
-</div>
+
+                        
+<div class="container"><br>
+  <div class="card TituloUser" style="height: 60px">
+                                    <h3 class="responsive" style="color:white; font-weight:bold;">Mensajes Invitados</h3>  
+                                </div><br>
 <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">

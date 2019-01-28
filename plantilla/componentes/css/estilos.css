@@ -23,7 +23,7 @@
 }
 .divColorVerde{
 	background-color: rgba(0, 13, 90,1);
-	border: 5px solid #acc90d;
+	border: 5px solid #a4cb3a;
 	border-radius: 10px;
 	height: 200px;
 	margin-top: 50px;
@@ -34,7 +34,7 @@
 	padding-top: 5px;
 }
 .inventarioTitle{
-	background: #acc90d;
+	background: #a4cb3a;
 	height: 17%;
 	margin-bottom: 0px;
 }
@@ -66,14 +66,14 @@
 }
 
 .negociosT th{
-	background: #000d5a;
+	background: #a4cb3a;
 	margin: 0;
 	color: #fff;
 	font-weight: bold;
 }
 
 .negociosD th{
-	background: #000d5a;
+	background: #a4cb3a;
 	margin: 0;
 	font-weight: bold;
 }
@@ -93,14 +93,14 @@
 }
 
 .negociosT th{
-	background: #000d5a;
+	background: #a4cb3a;
 	margin: 0;
 	color: #fff;
 	font-weight: bold;
 }
 
 .negociosD th{
-	background: #000d5a;
+	background:#a4cb3a;
 	margin: 0;
 	color: #fff;
 	font-weight: bold;
@@ -116,7 +116,7 @@
 	background-color: rgba(0, 13, 90, 0.2);
 	color: #fff;
 	font-weight: bold;
-	border: #000d5a;
+	border: #a4cb3a;
 	border-bottom-style: solid;
 }
 
@@ -131,7 +131,7 @@
 
 }
 #cantidadVender{
-	border: 2px solid #000d5a
+	border: 2px solid #a4cb3a
 }
 .oculto{
     display: none;
@@ -150,7 +150,7 @@ display: inline;
 }
 
 .cardResumenIE .nav-tabs{
-	background-color: #000d5a;
+	background-color: #a4cb3a;
 }
 .cardResumenIE .nav-tabs li{
 	padding: 10px

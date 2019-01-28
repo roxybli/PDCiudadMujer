@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>-->
 
 <?php
 if (sizeof($Anuncios->result())==0) {
@@ -36,70 +35,81 @@ if($this->session->userdata('login')){
 else
 {
  ?> 
- <div></div>  <br><br>
- <div class="card TituloUser">
-                <h4 class="responsive" style="color:white; font-weight:bold;"> Noticias del Módulo Autonomia Económica</h3>
+  <br>
+ <div class="card TituloUser" style="height:60px;">
+                <p class="responsive" style="color:white; font-weight:bold; font-size: x-large;"> Noticias del Módulo Autonomia Económica</p>
                  </div> 
 
  <?php
 }
 ?>
-                <div class="card" > 
-                <div class="row" >     
-                 <br><br><li class=" search-box"> <a class="text-muted" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search" >
-                                <input  id="TituloB" name="TituloB" type="text" class="form-control" placeholder="Buscar por titulo de la publicacion"> <a class="srh-btn"><i class="ti-close"></i></a>
-
-                                <select id="Institucion" name="Institucion" type="text" class="form-control">
-                                    <option value="">Seleccionar Institución</option>
+                <div id="filtros" class="col-lg-22 card"> 
+        <div align="right">
+        <div class="col-lg-3">
+                <a id="btnFecha" onclick="Fecha()" class="btn btn-warning" style="color:white;"><i class="fa fa-search" style="margin:10px;"></i>Búsqueda personalizada</a>
+                </div></div>
+                <div style="display:none;" id="DivFecha">
+                   <form class="app-search" style="margin-left: 50px">
+                    <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                        <li class=" search-box"> <a class="text-muted" href=""><i class=""></i></a>
+                            <form class="app-search" ><label  ">Buscar por Titulo: </label>
+                                <div class="input-group input-group-rounded has-success">
+                                
+                                <input  id="TituloB" name="TituloB" type="text" class="form-control" placeholder="Buscar por titulo de la publicacion"> <a class=""><i class=""></i></a></div>
+                                <br> <label >Buscar por Institución: </label>
+                                <div class="input-group input-group-rounded has-success">
+                               
+                                <select class="form-control" id="Institucion" name="Institucion" type="text" >
+                                     <option value="">Búsqueda por Institución</option>
                                     <?php foreach ($Instituciones->result() as $institucion) { ?>
                                         <option value="<?= $institucion->Pk_Id_Institucion ?>">
                                             <?= $institucion->Nombre_Institucion ?>
                                         </option>
                                     <?php } ?>
                                 </select>
+                            </div>
                             </form>
-                        Buscar por título y/o institución</li>
-                </div>
-        <div class="row" style="margin:30px;">
-                <a id="btnFecha" onclick="Fecha()" class="btn btn-warning" style="color:white;"><i class="fa fa-calendar" style="margin:10px;"></i>Buscar por fechas</a>
-                </div>
-                <div style="display:none;" id="DivFecha">
-                    <form class="app-search" method="POST" action="<?= base_url()?>Anuncios/BuscarFecha">
-                    <div class="row">
-                        <div class="col-md-6">
+                            </li>
+                        </div> </div>
+                     <form class="app-search" method="POST" action="<?= base_url()?>Anuncios/BuscarFecha">
+                        <div class="row">
+                        <div class="col-md-60" style="margin-left: 70px" >
+                            <div class="input-group input-group-rounded has-success">
                         <label>Inserte la fecha de inicio</label>
-                        <div class="input-group">
+                         <div class="input-group" >
                             <input type="date" name="FechaInicial" id="fechaInicial" class="form-control">
                         </div>
-                        </div>
-                        <div class="col-md-6">
+                        </div></div>
+                        <div class="col-md-60"style="margin-left: 70px">
+                            <div class="input-group input-group-rounded has-success">
                         <label>Inserte la fecha de fin</label>
                         <div class="input-group">
                             <input type="date" name="FechaFinal" id="fechaFinal" class="form-control">
                         </div> 
                         </div> 
-                    </div>
-                       <div class="row">
-                        <div class="col-md-6">
-                        <div class="input-group">
-                            <a onclick="Cancel()" class="btn btn-success" style="margin:10px; color:white;"><i style="margin:10px;" class="fa fa-times-circle"></i>Cancelar</a>
+                         </div> </div></div>
+                         
+                       <div class="row" align="right">
+                        <div class="col-md-12" align="right" >
+                            <a onclick="Cancel()" class="btn btn-secondary" style="margin:10px; color:white; "><i style="margin:10px; color: white" class="fa fa-close"></i>Cerrar</a>
+                            <button class="btn btn-primary" style="margin:10px; color:white;"><i style="margin:10px;" class="fa fa-calendar"></i>Buscar fecha</button>
+                        
                         </div>
-                        </div>
-                        <div class="col-md-6">
-                        <div class="input-group">
-                            <button class="btn btn-primary" style="margin:10px; color:white;"><i style="margin:10px;" class="fa fa-search"></i>Buscar</button>
-                        </div> 
-                        </div> 
                     </div>
+                </form>
                     </form>
                      </div>
+                </div>
+                </div>
+                </div>
                 </div>
     <div class="row" id="DivBody">
           <?php
             foreach ($Anuncios->result() as $publicacion) {
                 $fecha = new DateTime($publicacion->Fecha);
-                                    $fecha = $fecha->format("d-m-Y");
+                 $fecha = $fecha->format("d-m-Y");
             ?>
         <div class="col-lg-12" >
             <div class="card">
@@ -118,9 +128,12 @@ else
                                                                     else{echo $publicacion->Imagen;}?>"/></div>
                                                         <div class="col-md-9 col-xs-12 alert" >
                                                             <p style="color:#000;"> <?php echo $publicacion->Descripcion_Noticia;?></p>
-                                                             <p style="color:#000;"> <?php echo $publicacion->Nombre_Institucion;?></p>
-                                                            <span><p><i class="fa fa-check" style="margin:10px;"></i>Publicado por <?= $publicacion->Nombre?><span><p><i class="fa fa-calendar" style="margin:10px;"></i>Fecha de publicacion <?= $fecha ?></p><br></span></p><br></span>
-                                                            <a class="btn  btn-info" href="<?= base_url()?>Anuncios/VerAnuncios?id=<?= $publicacion->pk_Id_Anuncio?>" style="color:white;">Leer mas...</a>
+                                                              
+                                                            <span><p><i class="fa fa-user" style="margin:10px;"></i>Publicado por <?= $publicacion->Nombre?></p></span>
+                                                            <span><p style="margin: 10px"><i class="fa fa-building"></i> Institución: <?php echo $publicacion->Nombre_Institucion;?></p></span>
+
+                                                            <span><p><i class="fa fa-calendar" style="margin:10px;"></i>Fecha de publicacion <?= $fecha ?></p></span></p><br></span>
+                                                            <a class="btn  btn-info" href="<?= base_url()?>Anuncios/VerAnuncios?id=<?= $publicacion->pk_Id_Anuncio?>" class="btn btn-info"><i class="fa fa-eye fa-2x" style="margin: 10px;"></i>Ver Publicación</a>
                                                        </div>
                                                 </div>
                                             </div>
@@ -189,7 +202,7 @@ else
                     }
                 }
                 else{
-                    //alert('No hay coicidencias');
+                    html+='<label class="text-danger" style="margin-left:20px; font-size: Medium">No hay coicidencias</label>';
                 }
                 document.getElementById('DivBody').innerHTML=html;
             }

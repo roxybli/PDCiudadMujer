@@ -266,9 +266,6 @@ class Capital extends CI_Controller {
 	public function actualizarDatosNegocio()
 	{
 		$datos = $this->input->post();
-		//var_dump($datos['cantidadElemento'])."<br>";
-		//var_dump($datos['precioEquipamiento'])."<br>";
-		//var_dump($datos['idEquipamiento'])."<br>";
 		$idSubrubro = $datos['idSubrubro'];
 		 $d=0; $p=0; $c=0; 
 		for ($i=0; $i < sizeof($datos['idEquipamiento']); $i++)

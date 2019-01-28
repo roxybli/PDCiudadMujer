@@ -47,6 +47,18 @@ class Eventos extends CI_Controller {
         echo json_encode($eventos2->result());
         //echo $fecha;
      }
+      public function VerUltimoEvento(){
+        $this->load->model('Calendario_Model');
+        $evento = $this->Calendario_Model->verUltimoEvento();
+        echo json_encode($evento);
+    }
+     
+    public function EstadoEvento(){
+        $id = $this->input->post('id');
+        $this->load->model('Calendario_Model');
+        $this->Calendario_Model->EstadoEvento($id);
+        echo json_encode($id);
+    }
      public function Eliminar(){
         $id=$this->input->GET('IdE');
         //echo $id;
@@ -72,7 +84,6 @@ class Eventos extends CI_Controller {
         $bool=$this->Calendario_Model->GetEventById($id);
         $data = array('eventos' => $bool);
         $this->load->view('administrador/base/header');
-        
         $this->load->view('Eventos/Actualizar_Evento', $data);
         $this->load->view('administrador/base/footer');
         //echo json_encode($bool->result());

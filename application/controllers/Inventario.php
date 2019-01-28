@@ -99,10 +99,7 @@ class Inventario extends CI_Controller {
 
 			$datoss = array();
 			sort($datos['idInsumos']);
-			//var_dump($datos['idInsumos']);
 			sort($datos['medidaInsumo']);
-			//var_dump($datos['nombreInsumo']);
-			//var_dump($cantidadI);
 
 			$datoss['materiaPrimaSeleccionada' ] = $datos['materiaPrimaSeleccionada'];
 			$datoss['medidaInsumo' ] = $datos['medidaInsumo'];
@@ -126,9 +123,6 @@ class Inventario extends CI_Controller {
 				$this->load->model('Inventario_Model');
 				$this->Inventario_Model->guardarProcedimiento($datoss);
 			}
-			//var_dump($datoss);
-
-			//var_dump($datos['cantidadInsumo']);
 		}
 	}
 	public function detalleProcedimiento()
@@ -151,7 +145,6 @@ class Inventario extends CI_Controller {
 		$this->load->model('Inventario_Model');
 		$direccion = $this->session->userdata('direccion');
 		$bool = $this->Inventario_Model->guardarProducto($datos, $direccion);
-		//var_dump($data);
 
 		if ($bool== false)
 		{
@@ -305,15 +298,15 @@ class Inventario extends CI_Controller {
 			    <div id='cabecera'>
 					<div id='img'>
 			<img src='".base_url()."plantilla/img_perfil/".$this->session->userdata('fotoUsuaria')."'>
-		    </div><p style='font-weight: bold; text-align:right;'> FECHA DE CREACIÓN:  $fecha</p>
+		    </div>
 		    <div class='textoCentral'>REPORTE DE INVENTARIO <br>
 			       ".strtoupper($this->session->userdata('nombreNegocio'))."      
 		    ";
 		foreach ($datos->result() as $user)
 	        {}
 		$html .="
-		  <br><strong style='font-weight: bold; text-align:center;'>PROPIETARIA: ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br></div><br>
-		</div></div>			        
+		  <br><strong style='font-weight: bold; text-align:center;'>PROPIETARIA: ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br>FECHA DE CREACION: ".$fecha."</p></div>
+		</div></div>	<br>		        
 			<div class='table-responsive container'>
 			        <table class='table table table-bordered'>
 			        <thead class='active' >
@@ -439,14 +432,14 @@ class Inventario extends CI_Controller {
 			    <div id='cabecera'>
 			    <div id='img'>
 				<img src='".base_url()."plantilla/img_perfil/".$this->session->userdata('fotoUsuaria')."'>
-		    </div><p style='font-weight: bold; text-align:right;'> FECHA DE CREACIÓN:  $fecha</p>
+		    </div>
 		    <div class='textoCentral'>REPORTE DE VENTAS <br>
 			       ".strtoupper($this->session->userdata('nombreNegocio'))." <br>     
 		    ";
 		foreach ($datos->result() as $user)
 	        {}
 		$html .="
-		    <strong style='font-weight: bold; text-align:center;'>PROPIETARIA:".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br></div>
+		    <strong style='font-weight: bold; text-align:center;'>PROPIETARIA:".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br>FECHA DE CREACION: ".$fecha."</p></div>
 		</div>
 			</div>
 			<br>
@@ -580,14 +573,14 @@ class Inventario extends CI_Controller {
 			    <div id='cabecera'>
 					<div id='img'>
 					<img src='".base_url()."plantilla/img_perfil/".$this->session->userdata('fotoUsuaria')."'>
-		    </div><p style='font-weight: bold; text-align:right;'> FECHA DE CREACIÓN:  $fecha</p>
+		    </div>
 		    <div class='textoCentral'>REPORTE DE PRODUCTOS EN PROCESO <br>
 			       ".strtoupper($this->session->userdata('nombreNegocio'))."      
 		    ";
 			    foreach ($datos->result() as $user)
 		        {}
 			$html .="
-			    <br><strong style='font-weight: bold;'>PROPIETARIA: ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br></div>
+			    <br><strong style='font-weight: bold;'>PROPIETARIA: ".strtoupper($user->Nombre)." ".strtoupper($user->Apellido )."</strong><br>FECHA DE CREACION: ".$fecha."</p></div>
 			    </div>
 			</div>
 			<br>

@@ -1,24 +1,26 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles">
     <div class="col-md-4 align-self-center">
         <a href="<?= base_url() ?>capital/negocios"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver </h3></a>
     </div>
-
-     <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Negocios Disponibles</h3>
+    <div class="col-md-5 align-center">
+       
      </div>
-
-    <div class="col-md-3 align-self-center">
+     <div class="col-md-3 align-self-center">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Capital inicial</a></li>
-            <li class="breadcrumb-item active">negocios</li>
+            <li class="breadcrumb-item active">Negocios</li>
         </ol>
     </div>
 </div>
 
 <div class="container-fluid">
+    <div class="card-title TituloUser" style="height: 60px">
+        <h3 class="responsive" style="color:white; font-weight:bold;">Negocios Disponibles</h3>
+     </div>
     <div class="card">
         <div class="card-title">
         </div>
+        
         <div class="card-body">
         <?php 
         if (sizeof($datos->result()) == 0 )

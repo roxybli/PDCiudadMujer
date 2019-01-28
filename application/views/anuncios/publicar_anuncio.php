@@ -24,12 +24,12 @@
                 <!-- Start Page Content -->
                 <div class="row ">
                     <div class="col-sm-12">
-                           <div class="card TituloUser">
+                           <div class="card TituloUser" style="height: 60px">
                                 <h3 class="responsive" style="color:white; font-weight:bold;">Publicar Noticias</h3>
                                 </div>
                         <div class="card">
                                 <div class="form-validation">
-                                     <p style="color:#000000;"><b>Indicaciones</b><br>Todos los campos son requeridos</p>
+                                     <p class="text-danger"><b>Indicaciones</b><br>(*) Todos los campos son requeridos.</p>
                                         <!-- Bread crumb -->
                                                     <form class="form-valide" method="POST" action="<?= base_url() ?>Anuncios/guardar" enctype="multipart/form-data" form="formAnuncio" id="formAnuncio">                                    
                                                         <div class="row ">
@@ -104,11 +104,11 @@
                                                             </div>
                                                             <!--/span-->
                                                             <!--/span--> 
-                                                        </div>                                                        
-
+                                                        </div>                                                       
                                                         <div class="row" align="right">
                                                         <div class="col-md-12" align="right" >
                                                         <a style="color:white;" href="<?= base_url()?>Anuncios/" class="btn btn-secondary"><i class="fa fa-times-circle f-s-20" style="margin:10px;"></i>Regresar</a>  
+                                                        <button type="submit" onclick="AccionBoton2('<?= base_url() ?>Anuncios/guardarBorrador')" class="btn btn-primary"><i class="fa fa-pencil-square-o  f-s-20" style="margin:10px;"></i>Guardar Borrador</button>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o f-s-20" style="margin:10px;"></i>Publicar</button>                                                        
                                                         </div>
                                                         </div> 
@@ -120,18 +120,27 @@
                     </div>
                 </div>
 <script type="text/javascript">
-function SubirImg(){
-    document.getElementById('imagenN').click();
-}
-function filePreview(input){
-if(input.files && input.files[0]){
-    var reader = new FileReader(); 
-    reader.readAsDataURL(input.files[0]);
-    reader.onload =function(e) {
-            //$('#formAnuncio + img').remove();
-            //$('#formAnuncio').after('<div class="col-md-4"><img  src="'+e.target.result+'"  width="450" height="300" id="vista"/>');
-            //$('#formAnuncio').innerHTML='<div class="col-md-4"><img  src="'+e.target.result+'"  width="450" height="300" id="vista"/>';
-            document.getElementById('mostrarI').innerHTML='<img  src="'+e.target.result+'"  width="200" height="200" id="vista" alt="Imagen a publicar"/>';
+function AccionBoton(action){
+    document.getElementById('formAnuncio').action= action;    
+    }
+
+    function AccionBoton2(action){
+        document.getElementById('formAnuncio').action= action;
+        document.getElementById('fecha').removeAttribute("required");
+        document.getElementById('val-name').removeAttribute("required");
+        document.getElementById('val-name2').removeAttribute("required");
+        document.getElementById('val-name3').removeAttribute("required");
+       } 
+
+        function SubirImg(){
+         document.getElementById('imagenN').click();
+        }
+        function filePreview(input){
+        if(input.files && input.files[0]){
+          var reader = new FileReader(); 
+          reader.readAsDataURL(input.files[0]);
+          reader.onload =function(e) {
+            document.getElementById('mostrarI').innerHTML='<img  src="'+e.target.result+'"  width="150" height="200" id="vista"  alt="Imagen a publicar"/>';
     }
     }
 }

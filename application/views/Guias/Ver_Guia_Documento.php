@@ -1,5 +1,5 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-
+<div class="card">
 <div><br>   
 <div class="card TituloUser">   
  <h3 class="responsive" style="color:white; font-weight:bold;">Guias Multimedia</h3>  
@@ -28,8 +28,8 @@
                                                     <div class="col-md-9 col-xs-12 alert">
                                                             <h1 style="color:#013ADF"> <?php echo $Guias->Titulo_Guia;?></h1><hr>
                                                             <p  style="color:black; text-align: justify;"><?php echo $Guias->Descripcion_Guia;?></p>
-                                                            <span><p><i class="fa fa-check" style="margin:10px;">                 
-                                                            </i>Publicado por <?= $Guias->Nombre?><span><p><i class="fa fa-calendar" style="margin:10px;"></i>Fecha de publicación <?= $fecha?></p><br></span></p><br></span>
+                                                            <span><p><i class="fa fa-user" style="margin:10px;">                 
+                                                            </i>Publicado por: <?= $Guias->Nombre?><span><p><i class="fa fa-calendar" style="margin:10px;"></i>Fecha de publicación: <?= $fecha?></p><br></span></p><br></span>
                                                             <a href="<?= base_url()?>Guias/VerGuia?id=<?php echo $Guias->pk_Id_Guia?>" class="btn btn-info"><i class="fa fa-eye fa-2x" style="margin: 10px;"></i>Ver Publicación</a>
                                                         </div>
                                                 </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
           </div>  
-
+</div>
     </div>
 <hr>
 

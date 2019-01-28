@@ -3,6 +3,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('encrypt');
+		
+	}
+
 	public function index()
 	{
 		$this->load->view('logueo/header-login');
@@ -11,9 +18,9 @@ class Login extends CI_Controller {
 	}
 	public function cerrar_sesion(){
 		$this->session->sess_destroy();
-
+//alert("Precione Aceptar para cerrar sesion: '.$this->session->userdata('usuario').'");
 		echo '<script type="text/javascript">
-				alert("Precione Aceptar para cerrar sesion: '.$this->session->userdata('usuario').'");
+				
 				self.location ="'.base_url().'"
 				</script>';
 	}
@@ -44,11 +51,13 @@ class Login extends CI_Controller {
 			$users=$this->Perfiles_Model->cargarUsuaria($id);
 			$ingreso = $this->Perfiles_Model->cargarIngresos();
 			$Nmens = $this->Perfiles_Model->cargarComentarios();
+			$ultimo=$this->Perfiles_Model->cargarUltimo();
+			$pultimo=$this->Perfiles_Model->cargarPultimo();
 			$NumC = $this->Perfiles_Model->cargarContactos();
 			//$info1 = array('info' => $ver);
 
 			if($ver){
-				$info1 = array('info' => $ver, 'user'=>$users, 'ingreso'=>$ingreso, 'N_mens'=>$Nmens, 'NumC'=>$NumC);
+				$info1 = array('info' => $ver, 'user'=>$users, 'ultimo' =>$ultimo, 'pultimo'=>$pultimo, 'ingreso'=>$ingreso, 'N_mens'=>$Nmens, 'NumC'=>$NumC);
 				$this->load->view('administrador/base/header');
 				$this->load->view('administrador/plugin/app-profile', $info1);
 				$this->load->view('administrador/base/footer');
@@ -69,13 +78,14 @@ class Login extends CI_Controller {
 		$this->load->model('Usuarias_Model');
 		$nombre= $_POST['nomuser'];
 		$password= $_POST['pass'];
-		
+
 		$fila = $this->Usuarias_Model->validarUsuaria($nombre);
 		if ($fila != null)
 		{
+			$valordesncriptado=$this->encrypt->decode($fila->Pass);
 			$id = $fila->pk_Id_Usuaria;
 			$foto = $this->Usuarias_Model->obtenerFotoReporte($id);
-			if ($fila->Pass == $password)
+			if ($valordesncriptado == $password )
 			{
 
 				$data = array(
@@ -96,9 +106,6 @@ class Login extends CI_Controller {
 					'nombreNegocio'=> "Sin negocio registrado",
 					); 
 				}
-				
-					
-
 				$data3 = array(
 					'nombre'=> $fila->Nombre." ".$fila->Apellido,
 					'id_tipo'=>$fila->fk_Tipo_Usuaria,
@@ -107,9 +114,8 @@ class Login extends CI_Controller {
 				$this->session->set_userdata($data);
 				$this->session->set_userdata($data2);
 				$this->session->set_userdata($data3);
-				
+				//alert("Bienvenido al Sistema: '.$this->session->userdata('usuario').'");
 				echo '<script type="text/javascript">
-				alert("Bienvenido al Sistema: '.$this->session->userdata('usuario').'");
 				self.location ="'.base_url().'Login/home"
 				</script>';
 			}

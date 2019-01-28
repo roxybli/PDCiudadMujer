@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Perfiles extends CI_Controller {
 
+public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('encrypt');
+		
+	}
 	public function registroPerfil()
 	{
 		//echo "no tiene registros";
@@ -78,13 +84,20 @@ class Perfiles extends CI_Controller {
 	}
 	public function EditarUsuaria(){
 		$datos = $this->input->POST();
+		$nombre=$this->input->POST('nombre');
+	    $apellido=$this->input->POST('apellido');
+	    $nomuser=$this->input->POST('nomuser');
+	    $pass=$this->input->POST('pass');
+	    $encrontra=$this->encrypt->encode($pass);
+	    $direccion=$this->input->POST('direccion');
+	    $telefono=$this->input->POST('telefono');
 		$this->load->model('Perfiles_Model');
-		$bool = $this->Perfiles_Model->editarUsuaria($datos);
+		$data = array('datos'=> $datos,'nombre' => $nombre,'apellido' => $apellido, 'nomuser' => $nomuser,'pass' => $encrontra, 'direccion' => $direccion, 'telefono' => $telefono);
+		$bool = $this->Perfiles_Model->editarUsuaria($data);
 		if($bool){
 			echo '<script type="text/javascript">	
 				self.location ="'.base_url().'/Login/home"
-				</script>';
-				
+				</script>';	
 		}
 		
 		else{

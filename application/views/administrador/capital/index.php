@@ -1,9 +1,9 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles" >
     <div class="col-md-4 align-self-center">
     <a href="<?=base_url() ?>capital/"><h3 class="text-primary"><i class="fa fa-home"></i></h3></a>
     </div>
      <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Capital Inicial</h3>
+       
      </div>
 
     <div class="col-md-3 align-self-center">
@@ -13,6 +13,13 @@
         </ol>
     </div>
 </div>
+<div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row ">
+                    <div class="col-sm-12">
+<div class="card TituloUser" style="height: 60px" >
+        <h3 class="responsive" style="color:white; font-weight:bold;"> Capital Inicial</h3>
+     </div>
 <div class="container-fluid bg" style="height:615px">
     <!-- Start Page Content -->
     <div class="row divCentrado">
@@ -62,5 +69,5 @@
         <?php } ?>
 
     </div>
-  
+  </div></div></div>
 </div>

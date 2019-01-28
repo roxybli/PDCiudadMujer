@@ -21,8 +21,18 @@ class Mensajes_Model extends CI_Model
 		$res = $this->db->query($sql);
 		return $res->result();
 	}
+	public function EstadoMensajesC(){
+		$id = $this->input->post('id');
+		$this->load->model('Mensajes_Model');
+		$this->Mensajes_Model->EstadoMensajeC($id);
+		echo json_encode($id);
+	}
 	public function EstadoMensaje($id){
 		$sql="UPDATE tbl_Mensajes SET Estado_Mensaje='Leido' WHERE PK_Id_Mensaje=$id";
+		$this->db->query($sql);
+	}
+	public function EstadoMensajeC($id){
+		$sql="UPDATE tbl_Mensajes_Contactos SET Estado_Mensaje='Leido' WHERE PK_Id_Mensaje_Contacto=$id";
 		$this->db->query($sql);
 	}
 	public function ListarMensajes(){

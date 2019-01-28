@@ -20,7 +20,8 @@ class Estadisticas_Model extends CI_Model
 		$id= $this->session->userdata('id');
 		$sql="SELECT p.Nombre_Producto, SUM(i.Existencia_Producto) as suma
 			FROM tbl_inventario AS i
-			INNER JOIN tbl_productos AS p ON i.FK_Id_Producto = p.Pk_Id_Producto WHERE p.FK_Id_Usuario =$id
+			INNER JOIN tbl_productos AS p ON i.FK_Id_Producto = p.Pk_Id_Producto 
+			WHERE p.FK_Id_Usuario =$id
 			AND i.Estado = 'Terminado'
 			AND i.Fecha_Creacion
 			BETWEEN '$fechaI'
@@ -53,6 +54,7 @@ class Estadisticas_Model extends CI_Model
 		$resultado = $this->db->query($sql);
 		return $resultado;
 		}
+
 
 }
 ?>

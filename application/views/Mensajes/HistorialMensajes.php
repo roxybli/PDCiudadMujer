@@ -17,13 +17,10 @@
 
             ?>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12"> 
-       
-            <div class=" card ">
-          <div style="background-color:#512da8; color:white; padding:20;">
-<h3  style="color:white; padding: 10px; " class=" text-center"><b> Historial de Mensajes</b></h3>
+    <div class="row">   <div class=" card TituloUser" style="height: 60px">
+<h3  class="responsive" style="color:white; font-weight:bold;"><b> Historial de Mensajes</b></h3>
 </div>
+        <div class="col-lg-12" style="padding-top: 30px"> 
             <?php 
             $idE=$this->session->userdata('id');
             foreach ($Mensajes as $msj) {
@@ -44,6 +41,7 @@
                 <div class="col-md-4"> 
                 </div>
                 <div class="col-md-4">
+                 
                 </div>
                 <div class="card col-md-4 receptor">
                      <?= $msj->Mensaje?>

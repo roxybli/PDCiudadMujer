@@ -18,14 +18,13 @@ foreach ($registro->result() as $info2) {
             <!-- Container fluid  -->
 <div class="container-fluid">
     <div class="row">
-                    <div class="col-lg-12">
-                        
+                    <div class="col-lg-12"><div class="card TituloUser" style="height: 60px">
+                        <h3 class="responsive" style="color:white; font-weight:bold;">Usuarias Registradas</h3></div>
                     <div class="card">
                             <div class="card-body">
-                                <h4 class="card TituloUser">Usuarias registradas</h4>
-                                <h1 style="margin:10px;"><?php echo $info2->Nombre_Sede?></h5>
+                                <h1 style="margin:5px;"><?php echo $info2->Nombre_Sede?></h5>
                                 <div class="table-responsive m-t-40">
-                                    <h2 class="card-subtitle" style="color: #000000">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h6>
+                                    <h2  style="color: #000000; font-size: medium;">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h6>
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead >
                                             <tr style="background'color:#0005da; color:white;">
@@ -62,14 +61,12 @@ foreach ($registro->result() as $info2) {
                                                     $ime++;
                                                     $fechaActual = date("Y-m-d");
                                                     $fecha2=$info->Fecha_Actividad;
-                                                     //$inicio = strtotime($fechaActual);
-                                                    //$fecha5="2018/09/18";
+                                                     
                                                     $id=$info->pk_Id_Usuaria;
                                                     $inicio = strtotime($fechaActual);
                                                      $fin = strtotime($fecha2);
                                                      $dif = $inicio - $fin;
-                                                     $diasFalt = (( ( $dif / 60 ) / 60 ) / 24);
-                                                     //printf("el numero de dias que imprime es %d", $diasFalt);
+                                                     $diasFalt = (( ( $dif / 90 ) / 90 ) / 24);
                                                      if($fecha2==null)
                                                      {
                                                         echo "<td id='cat' ><span style='display:block;' class='alert alert-warning'>Nueva usuaria</span></td>";
@@ -82,20 +79,16 @@ foreach ($registro->result() as $info2) {
 
                                                      }
                                                      else{
-                                                     if($diasFalt>60){
+                                                     if($diasFalt>90){
                                                         echo "<td id='cat' ><span style='display:block;' class='alert alert-danger'>Dias inactivo: ".round($diasFalt,0)."</span></td>";
                                                         echo '<td><div class="dropdown" align="center">
                                                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i><span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a onclick="Eliminar($id)" class="btn btn-danger m-b-10 m-l-5"><i class="fa fa-trash-o" aria-hidden="true"></i>Eliminar</a></li>
                                                                     <li><a href="'.base_url().'/Emprendedoras/editar?id='.$id.'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></li></ul>
-                                                                </div></td>';
-                                                        /*echo "<td><a class='btn btn-warning m-b-10 m-l-5'><i style='color:white;' class='fa fa-pencil-square-o' aria-hidden='true'></i></a></td>";*/
+                                                                </div></td>';  
                                                      }
                                                      else{
-                                                       /* <td><a onclick='Eliminar($id)' class='btn btn-danger m-b-10 m-l-5'><i style='color:white;' class='fa fa-trash-o' aria-hidden='true'></i></a></td>*/
-
-
                                                         echo "<td id='cat' ><span style='display:block; color:#000000;' class='alert alert-success'>Dias inactivo: ".round($diasFalt,0)."</span></td>";
                                                         echo '<td><div class="dropdown" align="center">
                                                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i><span class="caret"></span></button>
@@ -103,18 +96,11 @@ foreach ($registro->result() as $info2) {
                                                                     <li onclick="NoDelete()"><a  title="Este usuario esta activo no se puede eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</a> </li>
                                                                     <li><a href="'.base_url().'/Emprendedoras/editar?id='.$id.'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></li></ul>
                                                                 </div></td>';
-                                                       /*echo "<td><a class='disabled btn btn-danger m-b-10 m-l-5'><i style='color:white;' class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
-                                                        */
-                                                       /*echo "<td><a class='btn btn-warning m-b-10 m-l-5'><i style='color:white;' class='fa fa-pencil-square-o' aria-hidden='true'></i></a></td>";*/
-
+                                        
                                                      }
                                                      }
-                                                     
-
                                                 }
-                                            ?>
-
-                                           
+                                            ?>   
                                         </tbody>
                                     </table>
                                 </div>

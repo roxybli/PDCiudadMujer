@@ -26,17 +26,30 @@ class Perfiles_Model extends CI_Model
 	}
 	public function cargarIngresos(){
 		$id= $this->session->userdata('id');
+		$fecha = date("YYYY-mm-dd");
 		$sql = "SELECT Total_Ingreso, MAX(PK_Id_Balance) AS id FROM tbl_Balance WHERE FK_Id_Usuario=$id ";
 		$ingreso = $this->db->query($sql);
 		return $ingreso;
 	}
-	public function BuscarPerfil($Nombre, $sede, $rubro){
+		public function cargarUltimo(){
+		$sql="SELECT * FROM `tbl_eventos` ORDER BY id_evento DESC LIMIT 1";
+		$evento1= $this->db->query($sql);
+		return $evento1;	
+	}
+	
+	public function cargarPultimo(){
+		$sql="SELECT * FROM `tbl_eventos` ORDER BY id_evento DESC LIMIT 1,1";
+		$evento2= $this->db->query($sql);
+		return $evento2;	
+	}
+		public function BuscarPerfil($Nombre, $sede, $rubro){
 
 		$sql = "SELECT * FROM VW_Perfiles WHERE Nombre_Negocio LIKE '%$Nombre%' AND Nombre_Sede LIKE '%$sede%' AND Nombre_Rubro LIKE '%$rubro%'";
 
 		$result = $this->db->query($sql);
 		return $result->result();
 	}
+	
 	public function CargarBolsa(){
 		$sql="SELECT * FROM VW_Perfiles";
 		$validar=$this->db->query($sql);
@@ -53,9 +66,9 @@ class Perfiles_Model extends CI_Model
 			$nombre=$data['nombre'];
 			$apellido=$data['apellido'];
 			$nomuser=$data['nomuser'];
+			$pass=$data['pass'];
 			$direccion=$data['direccion'];
 			$telefono=$data['telefono'];
-			$pass=$data['pass'];
 			$sql="UPDATE tbl_Usuarias SET Nombre='$nombre', Apellido='$apellido', Nom_User='$nomuser', Pass='$pass', Direccion='$direccion', Telefono='$telefono' WHERE pk_Id_Usuaria= '$id'";
 			if($this->db->query($sql)){
 				return true;
@@ -109,12 +122,11 @@ class Perfiles_Model extends CI_Model
 		if($data!=null){
 			$id=$data['id_usuaria'];
 			$nombren=$data['nombre_n'];
-			$direccionn=$data['direccion_n'];
+			$direccion=$data['direccion_n'];
 			$descripcion=$data['descripcion_n'];
 			$telefono=$data['telefono_n'];
 			$correo=$data['Correo_n'];
-			//$telefono=$data['telefono'];
-			$sql="UPDATE tbl_Perfiles_Empresariales SET Nombre_Negocio='$nombren', Direccion_Negocio='$direccionn', Descripcion_Negocio='$descripcion', Telefono='$telefono', Correo='$correo' WHERE FK_Usuaria = '$id'";
+			$sql="UPDATE tbl_Perfiles_Empresariales SET Nombre_Negocio='$nombren', Direccion_Negocio='$direccion', Descripcion_Negocio='$descripcion', Telefono='$telefono', Correo='$correo' WHERE FK_Usuaria = '$id'";
 			if($this->db->query($sql)){
 				return true;
 

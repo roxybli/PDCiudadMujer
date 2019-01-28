@@ -18,10 +18,10 @@
     <div class="row">
     <div class="card">
   <main class="mdl-layout__content">
-    <div class="card TituloUser">
-        <h3 class="responsive" style="color:white; font-weight:bold;">Perfil Empresarial</h3>  
+    <div class="card TituloUser" style="height: 60px">
+        <p  style="color:white; font-weight:bold; font-size: x-large;">Perfil Empresarial</p>  
      </div>
-  <div class="page-content">
+  <div class="page-content" style="margin-left: 60px">
    <div class="row">
     <div class="col-lg-4">
         <div class="card-two">
@@ -59,8 +59,6 @@
                     }
                     }
                     ?>
-                    <!--<a onclick="MostrarW(<?php echo $Perfil->Telefono?>)"><i class="fa fa-whatsapp"></i></a>
-                    -->
                     <a data-toggle="modal" data-target="#ModalMensaje" title="Enviar comentario a la emprendedora"><i class="fa fa-envelope" ></i></a>
                     <div  class="clrear">
                     </div>
@@ -70,10 +68,10 @@
                 <div>
                     <img src="<?=  base_url()?>plantilla/images/ubicacion.png">Dirección <a style="display:inline-block; padding: 10px; color: #FF0000 "href=" <?php echo $Perfil->Direccion_Negocio?>" target="_blank"> Ver en google maps</a></div>
                     <div>
-                    <img src="<?= base_url()?>plantilla/images/chica.png" style="display:inline-block;">Propietaria:<p style="display:inline-block; padding: 5px; "> <?php echo $Perfil->Nombre.' '.$Perfil->Apellido?></p>
+                    <img src="<?= base_url()?>plantilla/images/chica.png" style="display:inline-block; ">Propietaria:<p style="display:inline-block; padding: 5px; "> <?php echo $Perfil->Nombre.' '.$Perfil->Apellido?></p>
                     </div>
                      <div>
-                    <img src="<?= base_url()?>plantilla/images/rubro.png" style="display:inline-block;"> Rubro:<p style="display:inline-block; "><?php echo $Perfil->Nombre_Rubro?></p>
+                    <img src="<?= base_url()?>plantilla/images/rubro.png" style="display:inline-block; ">Rubro:<p style="display:inline-block;"><?php echo $Perfil->Nombre_Rubro?></p>
                     </div>
                     <div>
                     <img src="<?= base_url()?>plantilla/images/sede.png" style="display:inline-block;">Sede: <p style="display:inline-block; padding: 5px; "> <?php echo $Perfil->Nombre_Sede?></p>
@@ -168,7 +166,7 @@
                         <div class="col-md-12">
                         <div class="form-group">
                             <div class="input-group">  
-                                <input type="text" class="form-control"  id="Contacto_Mensaje" name="Contacto_Mensaje" placeholder="Numero de contacto"  onkeypress="return numeros(event, 'num')" required>
+                                <input type="text" class="form-control"  id="Contacto_Mensaje" name="Contacto_Mensaje" placeholder="Número de contacto"  onkeypress="return numeros(event, 'num')" required>
                             </div>
                             
                         </div>
@@ -182,7 +180,7 @@
                         </div>
                         </div>
                         <div class="col-md-12" align="right">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Emprendedoras/'">Regresar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Emprendedoras'">Regresar</button>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" style="margin:5;" aria-hidden="true"></i> Enviar</button>
                         </div>
                 </div>
@@ -223,7 +221,7 @@ function Agregar(id, nombre, foto){
         data: {Id:id, Nombre:nombre, Foto:foto},
         success:function(data){
             if(data==""){
-               swal("Contacto agregado", "Usted a gredado a este usuario a sus contactos", "success");
+               swal("Contacto agregado", "Usted agregó a este usuario a sus contactos", "success");
                document.getElementById("Emisor_Mensaje").value="";
                //$("#Contacto_Mensaje").val("");
                //$("#Contenido_Mensaje").val("");

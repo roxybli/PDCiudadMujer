@@ -6,6 +6,7 @@
 thead tr{
   background: #ffffff;
 }
+
 </style>
 <div class="container-fluid">
     <div class="row">
@@ -45,7 +46,7 @@ thead tr{
 <div class="modal fade" id="ModalInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="background-color:#512da8;">
+      <div class="modal-header" style="background-color:#a4cb3a;">
         <h5 class="modal-title" id="exampleModalLongTitle" style="color:white;">Insertar un nuevo evento</h5>
         <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -90,8 +91,8 @@ thead tr{
                             <textarea  class="form-control" style="height:150px;"  id="contenido_evento" name="contenido_evento" onkeypress="this.value=NumText(this.value)" placeholder="Descripcion del evento, requisitos de asistencia, hora de inicio, documentación necesarias, entre otros." required></textarea>
                         </div>
                     </div> <div class="col-md-12"  align="right">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Eventos/'">Regresar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button></div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='<?=base_url()?>Eventos/'"><i class="fa fa-close" ></i>Regresar</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" ></i>Guardar</button></div>
                 </div>
             </form>
         </div>
@@ -177,20 +178,18 @@ thead tr{
             //alert('hay');
             for (var i = 0; i < registro.length; i++) {
 
-              html+=' <div class="row color"><div class="col-md-12 "><div class="card"> <div class="card-body"> <p style="color: #04B486">'+registro[i]['titulo_evento']+'</p>'
+              html+=' <div class="row" ><div class="col-md-12 "><div class="card"  style=" background:#CEF6CE"; color:#000> <div class="card-body"> <p style="font-size:large; font-style: bold">'+registro[i]['titulo_evento']+'</p>'
               if(registro[i]['fecha_inicio']==registro[i]['fecha_fin']){
-
-
                 html+='<p style="color: #000000"> Fecha del evento:'+registro[i]['fecha_inicio']+'</p>';
               }
               else{
                 html+='<p style="color: #000000">Fecha del evento: '+registro[i]['fecha_inicio']+' hasta el: '+registro[i]['fecha_fin']+'</p>';
               }
-              html+='<p style="color: #000000">Descripción: '+registro[i]['contenido_evento']+'</p><p style="color: #000000">Dirección: '+registro[i]['ubicacion']+'</p>';
+              html+='<p style="color: #000000">Descripción: '+registro[i]['contenido_evento']+'</p><p style="color: #000000">Dirección: '+registro[i]['ubicacion']+'</p>'+ '<br></div></div><div></div>';
               if(id ==1 || id==2){
                // alert(registro[i]['id_evento']);
-                html+= "<a class='btn btn-danger' align='right' href='<?= base_url()?>Eventos/Eliminar?IdE="+registro[i]['id_evento']+"''> Elminar </a> "
-                html+=" <a class='btn btn-primary'align='right' href='<?= base_url()?>Eventos/Actualizar?IdE="+registro[i]['id_evento']+"'>Actualizar</a> </div></div> </div></div>"
+                html+= "<div align='right' style='background: #fff; padding: 10px; ' ><a class='btn btn-danger'' href='<?= base_url()?>Eventos/Eliminar?IdE="+registro[i]['id_evento']+"''><i  class='fa fa-trash-o'></i>Elminar </a> "
+                html+=" <a class='btn btn-primary' href='<?= base_url()?>Eventos/Actualizar?IdE="+registro[i]['id_evento']+"'><i class='fa fa-pencil-square-o'></i> Editar</a></div> </div></div> </div></div></div>"
               }
               }
             document.getElementById('DivEventList').innerHTML=html;

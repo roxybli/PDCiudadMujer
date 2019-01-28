@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" style="color: #fff">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,15 +29,15 @@
     <!-- scripit init-->
     <script src="<?=base_url() ?>plantilla/mtl/material.min.js"></script>
 
-<div class="">
+<div style="background: #fff;color:white">
 <!-- Always shows a header, even in smaller screens. -->
-<body class="fix-header fix-sidebar">
-<div  class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
+<body class="fix-header fix-sidebar" style="color: #fff;  background: #fff">
+<div  class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="background: #fff">
+  <header class="mdl-layout__header" style="background:#333232; color: #fff" >
+    <div class="mdl-layout__header-row" style="background:#333232; color: #fff">
       <!-- Title -->
       <img src="<?=base_url() ?>plantilla/images/LogoCM.jpg"  style="height:50%; margin:10;" alt="homepage" class="dark-logo">
-      <span class="mdl-layout-title letra-menu" style="font-size:30px;">Bolsa de Emprendedoras</span>
+      <span class="mdl-layout-title letra-menu" style="font-size:30px;">Ciudad Mujer</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
@@ -45,19 +45,18 @@
       <a id="ln" class="mdl-navigation__link" href="<?=base_url() ?>"><span class="letra-menu"><i class="fa fa-shopping-bag" style="margin:10;" aria-hidden="true"></i>Bolsa de emprendedoras</span></a>
         <a id="ln" class="mdl-navigation__link" href="<?=base_url() ?>Anuncios/"><span class="letra-menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
 Noticias</span></a>
- <a id="ln" class="mdl-navigation__link" href="<?=base_url() ?>Ayuda/" ><span class="letra-menu"><i style="margin:10;" class="fa fa-question" aria-hidden="true"></i>Ayuda</span></a>
-                   
-        <a id="ln" class="mdl-navigation__link" href="<?= base_url()?>Login"><span class="letra-menu"><i style="margin:10;" class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesion</span></a>
+ <a id="ln" class="mdl-navigation__link" href="<?=base_url() ?>Ayuda/" ><span class="letra-menu"><i style="margin:10;" class="fa fa-question" aria-hidden="true"></i>Ayuda</span></a>              
+        <a id="ln" class="mdl-navigation__link" href="<?= base_url()?>Login"><span class="letra-menu"><i style="margin:10;" class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesión</span></a>
       </nav>
     </div>
   </header>
-  <div class="mdl-layout__drawer">
+  <div class="mdl-layout__drawer" style="color: #000;">
         <img src="<?=base_url() ?>plantilla/images/LogoCiudadMujer.png"  style="height:20%; margin:10;" alt="homepage" class="dark-logo">
-    <span class="mdl-layout-title">Menu</span>
-    <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="<?=base_url() ?>Anuncios/"><span><i style="margin:10;" class="fa fa-newspaper-o" aria-hidden="true"></i>Noticias</span></a>
-      <a class="mdl-navigation__link" href="<?= base_url()?>Login"><span sty><i style="margin:10;" class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesion</span></a>
-     <a  class="mdl-navigation__link" href="<?=base_url() ?>Emprendedoras/"><span sty><i style="margin:10;" class="fa fa-shopping-bag" aria-hidden="true"></i>Bolsa de Emprendedoras</span></a>
+    <span class="mdl-layout-title" >Menu</span>
+    <nav class="mdl-navigation"> 
+     <a  class="mdl-navigation__link" style="color: #000" href="<?=base_url() ?>Emprendedoras/"><span sty><i style="margin:10; " class="fa fa-shopping-bag" aria-hidden="true" ></i>Bolsa de Emprendedoras</span></a>
+     <a class="mdl-navigation__link" style="color: #000" href="<?=base_url() ?>Anuncios/"><span><i style="margin:10;" class="fa fa-newspaper-o" aria-hidden="true"></i>Noticias</span></a>
+      <a class="mdl-navigation__link"  style="color: #000" href="<?= base_url()?>Login"><span sty><i style="margin:10;" class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesión</span></a>
     </nav>
   </div>
   

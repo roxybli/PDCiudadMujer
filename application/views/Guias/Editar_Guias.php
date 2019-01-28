@@ -16,11 +16,12 @@ foreach ($Guia->result() as $guia) {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card TituloUser">
+                        <div class="card TituloUser" style="height: 60px">
                                     <h3 class="responsive" style="color:white; font-weight:bold;">Editar Guias Multimedia</h3>  
                                 </div>
+                        <div class="card">
+                            <div class="card-body">
+                                
                                 <form method="post"  action="<?= base_url() ?>Guias/Editar" enctype="multipart/form-data" form="formAnuncio" id="formAnuncio">
                                     <div class="form-group">
                                     <div class="form-body">
@@ -242,12 +243,14 @@ $('#imagenN').change(function(){
 function ValidarImagen(obj){
     var uploadFile = obj.files[0];
     if (!window.FileReader) {
-        alert('El navegador no soporta la lectura de archivos');
+        sweetAlert("Accion no permitida", "El navegador no soporta la lectura de archivos", "error");
+       
         return;
     }
 
     if (!(/\.(jpg|png|gif|jpeg)$/i).test(uploadFile.name)) {
-        alert('El archivo a adjuntar no es una imagen');
+        sweetAlert("Accion no permitida", "El archivo a adjuntar no es una imagen", "error");
+
     }
     else {
         var img = new Image();

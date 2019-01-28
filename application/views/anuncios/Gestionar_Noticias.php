@@ -19,14 +19,15 @@ foreach ($Anuncios->result() as $noti) {
 <div class="container-fluid">
     <div class="row">
                     <div class="col-lg-12">
-                        
-                    <div class="card">
-                            <div class="card-body">
-                                  <div class="card TituloUser">
+                        <div class="card TituloUser" style="height: 60px">
                                     <h3 class="responsive" style="color:white; font-weight:bold;">Gestión de Noticias</h3>  
                                 </div>
+                    <div class="card">
+                            <div class="card-body">
+                                  
                                 
-                                <div class="table-responsive m-t-40"><h6 class="card-subtitle" style="color: #000000">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h6>
+                                <div class="table-responsive m-t-40">
+                                    <h2  style="color: #000000; font-size: medium; padding-top: 0px">Usted puede descargar los datos en los siguientes formatos copiar, CSV, Excel, PDF & Print</h2>
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead >
                                             <tr>
@@ -42,12 +43,14 @@ foreach ($Anuncios->result() as $noti) {
                                         <?php
                                         $ime=1;
                                                 foreach ($Anuncios->result() as $info){ 
+                                                    $fecha = new DateTime($info->Fecha);
+                                                    $fecha = $fecha->format("d-m-Y");
                                                     echo "<tr>";  
                                                    echo "<td id='ni' style='color: #000000'>".$ime."</td>";  
                                                     echo "<td id='nom' style='color: #000000'>".$info->Titulo."</td>";
                                                     echo "<td id='cat' style='color: #000000'>".$info->Nombre_Institucion."</td>";
                                                     echo "<td id='cat' style='color: #000000'>".$info->Nombre."</td>";
-                                                    echo "<td id='cat' style='color: #000000'>".$info->Fecha."</td>";
+                                                    echo "<td id='cat' style='color: #000000'>".$fecha."</td>";
                                                     $ime++;
                                                     $id=$info->pk_Id_Anuncio;
                                                     //INformacion para editar Noticia

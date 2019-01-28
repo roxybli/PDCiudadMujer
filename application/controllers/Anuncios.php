@@ -21,12 +21,10 @@ class Anuncios extends CI_Controller {
 	public function publicar_anuncios()
 	{
 		$this->load->view('administrador/base/header');
-
 		$this->load->model('Instituciones_Model');
 		$institucion=$this->Instituciones_Model->verInstituciones();
 		$data=array('Instituciones'=>$institucion);
 		$this->load->view('anuncios/publicar_anuncio', $data);
-		
 		$this->load->view('administrador/base/footer');
 	}
 	public function guardar()
@@ -48,6 +46,26 @@ class Anuncios extends CI_Controller {
 	    	echo '<script type="text/javascript">alert("Error al editar los datos")</script>';
 	    }
 	}
+	
+	public function guardarBorrador()
+	{
+		$nombre=$_FILES['imagenN']['name'];
+	    $tempo= $_FILES['imagenN']['tmp_name'];
+	    $dir="plantilla/img_anuncios/";
+	    move_uploaded_file($tempo, $dir.$nombre);
+	    $this->load->model('Anuncios_Model');
+	    $datos=$this->input->POST();
+	    $bool= $this->Anuncios_Model->insertarBorrador($nombre, $datos);
+	    if($bool){
+	    	echo '<script type="text/javascript">
+				self.location ="'.base_url().'Anuncios/GestionarBorradores"
+				</script>';
+	    }
+	    else{
+	    	echo '<script type="text/javascript">alert("Error al editar los datos")</script>';
+	    }
+	}
+	
 	public function VerAnuncios(){
 		if($tipo=$this->session->userdata('login')){
 			$this->load->view('administrador/base/header');
@@ -74,6 +92,19 @@ class Anuncios extends CI_Controller {
 		$this->load->view('anuncios/Gestionar_Noticias',$datos);
 		$this->load->view('administrador/base/footer');
 	}
+	
+	public function GestionarBorradores(){
+		$this->load->model('Anuncios_Model');
+		$borrador=$this->Anuncios_Model->listarBorradores();
+		$borrador1=$this->Anuncios_Model->listarInstituciones2();
+		$datos = array('Borradores'=>$borrador, 'Borradores1'=>$borrador1);
+		//cargando vistas
+		$this->load->view('administrador/base/header');
+		$this->load->view('anuncios/Gestionar_Borradores',$datos);
+		$this->load->view('administrador/base/footer');
+	}
+	
+	
 	public function eliminarAnuncio(){
 			$id= $this->input->GET('id');
 			 $datos=$this->input->POST();
@@ -91,6 +122,25 @@ class Anuncios extends CI_Controller {
 					</script>';
 			}
 	}
+	
+	public function eliminarBorrador(){
+			$id= $this->input->GET('id');
+			 $datos=$this->input->POST();
+			$this->load->model('Anuncios_Model');
+			$bool=$this->Anuncios_Model->EliminarBorrador($id);
+			if($bool){
+				echo '<script type="text/javascript">	
+					self.location ="'.base_url().'/Anuncios/GestionarBorradores"
+				</script>';
+			}
+			else{
+				echo '<script type="text/javascript">
+					alert("ERROR");
+					self.location ="'.base_url().'Anuncios/GestionarBorradores"
+					</script>';
+			}
+	}
+	
 	public function EditarNoticias(){
 		$id=$this->input->GET('id');
 		$this->load->model('Anuncios_Model');
@@ -102,6 +152,19 @@ class Anuncios extends CI_Controller {
 		$this->load->view('anuncios/Editar_Noticia', $data);
 		$this->load->view('administrador/base/footer');
 	}
+	
+	public function EditarBorradores(){
+		$id=$this->input->GET('id');
+		$this->load->model('Anuncios_Model');
+		$borrador = $this->Anuncios_Model->VerBorrador($id);
+		$this->load->model('Instituciones_Model');
+		$institucion=$this->Instituciones_Model->verInstituciones();
+		$data=array('Borrador'=>$borrador, 'Instituciones'=>$institucion);
+		$this->load->view('administrador/base/header');
+		$this->load->view('anuncios/Editar_Borrador', $data);
+		$this->load->view('administrador/base/footer');
+	}
+	
 	public function Editar(){
 		$datos=$this->input->POST();
 		if($nombre=$_FILES['imagenN']['name']==""){
@@ -126,6 +189,32 @@ class Anuncios extends CI_Controller {
 	    }
 
 	}
+	
+	public function EditarB(){
+		$datos=$this->input->POST();
+		if($nombre=$_FILES['imagenN']['name']==""){
+			$nombre=$datos['Imagen'];
+		}
+		else{
+			$nombre=$_FILES['imagenN']['name'];
+	    	$tempo= $_FILES['imagenN']['tmp_name'];
+	    	$dir="plantilla/img_anuncios/";
+	    	move_uploaded_file($tempo, $dir.$nombre);
+		}
+	    //$imagenconvert= file_get_contents($dir.$nombre);
+	    $this->load->model('Anuncios_Model');
+	    $bool= $this->Anuncios_Model->editarBorrador($nombre, $datos);
+	    if($bool){
+	    	echo '<script type="text/javascript">
+				self.location ="'.base_url().'Anuncios/GestionarBorradores"
+				</script>';
+	    }
+	    else{
+	    	echo '<script type="text/javascript">alert("Error al editar los datos")</script>';
+	    }
+
+	}
+	
 
 	public function BuscarPor(){
 		if ($this->input->is_ajax_request()) {
@@ -151,8 +240,6 @@ class Anuncios extends CI_Controller {
 		$this->load->model('Instituciones_Model');
 		$institucion=$this->Instituciones_Model->verInstituciones();
 		$datos = array('Anuncios'=>$anuncio, 'Instituciones'=>$institucion);
-		//echo json_encode($anuncio->result());
-		//$data = array('Anuncios'=>$anuncio);
 		$this->load->view('anuncios/lista_anuncios',$datos);
 		$this->load->view('administrador/base/footer');
 	}

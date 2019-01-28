@@ -1,10 +1,10 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles">
     <div class="col-md-4 align-self-center">
         <a href="<?=base_url() ?>inventario/"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver </h3></a>
      </div>
 
      <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Ingresar receta de producto</h3>
+        
      </div>
 
     <div class="col-md-3 align-self-center">
@@ -16,9 +16,12 @@
 </div>
 <div class="container-fluid">
     <div class="col-lg-12">
+ <div class="card TituloUser" style="height: 60px">
+                                    <h3 class="responsive" style="color:white; font-weight:bold;"> Ingresar receta de producto</h3>
+                                </div>
         <div class="card">
             <div class="card-title">
-                <p class="text-danger">(*) Todos los campos son requeridos.</p>
+                <p class="text-danger"><b>Indicaciones</b><br>(*) Todos los campos son requeridos.</p>
             </div>
             <div class="card-body">
                 <div id="cabeceraReceta">

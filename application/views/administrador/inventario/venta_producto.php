@@ -1,11 +1,11 @@
 
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles" >
     <div class="col-md-4 align-self-center">
         <a href="<?=base_url() ?>inventario/productos_disponibles"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver</h3></a>
      </div>
 
      <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Venta de producto</h3>
+        
      </div>
 
 
@@ -16,6 +16,11 @@
         </ol>
     </div>
 </div>
+<div class="card">
+  <div class="card TituloUser" style="height: 60px">
+        <h3 class="responsive" style="color:white; font-weight:bold;">Venta de Producto</h3>
+    </div>
+    <div class="card">
 <div class="container-fluid">
   <form role="form" action="<?= base_url() ?>inventario/venderProducto" id="formSolicitud" class="formEquipo" method="post">
    <fieldset>
@@ -72,8 +77,8 @@
 
    </fieldset>
   </form>
-  </div>
-
+  </div></div>
+</div>
 <script type="text/javascript">
   $(function() {
      $('#fechaVenta').datepicker({

@@ -1,10 +1,10 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles">
     <div class="col-md-4 align-self-center">
         <a href="<?=base_url() ?>insumos/insumosExistentes"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver</h3></a>
      </div>
 
      <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Datos del insumo</h3>
+      
      </div>
 
     <div class="col-md-3 align-self-center">
@@ -18,6 +18,9 @@
 <div class="container-fluid">
                 <!-- Start Page Content -->
     <div class="row ">
+         <div class="card TituloUser" style="height: 60px">
+                                    <h3 class="responsive" style="color:white; font-weight:bold;"> Datos del insumo</h3>
+                                </div>
         <div class="col-sm-12">
             <div class="card">
                     <div class="card-title">
@@ -91,7 +94,7 @@
                                             <div class="row" align="right">
                                             <div class="col-md-12" align="right" >
                                                 <a style="color:white;" href="<?=base_url() ?>inventario/consultar_receta" class="btn btn-secondary"><i class="fa fa-times-circle f-s-20" style="margin:4px;"></i>Regresar</a>
-                                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-share-square-o f-s-20"></i> Actualizar </button></div></div>
+                                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-share-square-o f-s-20"></i> Editar </button></div></div>
                                         </form>
                             <!-- End Bread crumb -->
 

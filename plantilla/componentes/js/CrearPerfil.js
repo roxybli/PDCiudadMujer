@@ -173,7 +173,8 @@ if(input.files && input.files[0]){
 function ValidarImagen(obj, v){
     var uploadFile = obj.files[0];
     if (!window.FileReader) {
-        alert('El navegador no soporta la lectura de archivos');
+      sweetAlert("Accion no permitida", "El navegador no soporta la lectura de archivos", "error");
+        
         return;
     }
 
@@ -185,7 +186,7 @@ function ValidarImagen(obj, v){
         img.onload = function () {
             if (this.width.toFixed(0) != 720 && this.height.toFixed(0) != 540) {
                 //alert('Las medidas deben ser: 200 * 200');
-                sweetAlert("Accion no permitida", "Tamanio de la imagen no permitida", "error");
+                sweetAlert("Accion no permitida", "Tamaño de la imagen no permitida", "error");
                 // $("#imagen1").val('');
                  if(v==1){
                     $("#imagen1").val('');
@@ -215,7 +216,6 @@ function ValidarImagen(obj, v){
                  }
             }
             else {
-                alert('Imagen correcta :)');
 
                  if(v==1){
                     document.getElementById('mostrarfoto1').innerHTML='<img class=" img-responsive radius" src="'+URL.createObjectURL(uploadFile)+'"  width="100" height="100" id="vista" alt="Imagen a publicar"/>';

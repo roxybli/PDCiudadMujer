@@ -128,7 +128,27 @@ public function ReportePorPeriodoAÑOSInventario($id, $param=null)
 		}
 }
 
-
-
+public function ReportePorPeriodoBalances($id, $param=null)
+	{
+		if($param !=null)
+		{
+			$param1 = $param['Fecha_Balance'];
+			$param2 = $param['Fecha_Fin'];
+			$sql = "SELECT e.Nombre_Egreso, e.Cantidad_Egreso, bie.Total_Ingreso
+					FROM tbl_Balance AS b
+					INNER JOIN tbl_Ingresos_Egresos_Balance AS bie ON ( b.PK_Id_Balance = bie.FK_Id_Balance )
+					INNER JOIN tbl_Egresos AS e ON ( bie.FK_Id_Egreso = e.Pk_Id_Egreso )
+					INNER JOIN tbl_Usuarias AS u ON ( b.FK_Id_Usuario = u.pk_Id_Usuaria )
+					WHERE b.FK_Id_Usuario =$id
+					AND b.Fecha_Balance
+					BETWEEN 'param1'
+					AND 'param2'
+					GROUP BY b.Fecha_Balance, e.Nombre_Egreso";
+					$datos = $this->db->query($sql);
+					return $datos;
+}
 		}
+	}
 ?>
+
+

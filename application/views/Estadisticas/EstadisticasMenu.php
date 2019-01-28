@@ -15,9 +15,9 @@
                     </ol>
                 </div>
             </div> <div class="card">
-            <div class="card TituloUser">
+            <div class="card TituloUser" style="height: 60px">
                 <h3 class="responsive" style="color:white; font-weight:bold;">  Gestión de Estadisticas</h3>  
-            </div>
+            </div><div class="card">
                     <form class="form" method="post" action="<?= base_url() ?>controlie/estadisticaMIE" style="padding: 40px">
                     
 
@@ -49,7 +49,7 @@
                 <canvas id="myChart" width="400" height="150"></canvas>
             </div>
     </div>
-
+</div>
                    
 </html>
 

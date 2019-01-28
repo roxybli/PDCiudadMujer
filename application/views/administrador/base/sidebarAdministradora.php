@@ -21,9 +21,9 @@
                                 <li><a href="<?=base_url()?>Reportes">Reportes de usuarios registrados</a></li> 
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="<?=base_url() ?>Rubros/" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Gestionar Rubros</span></a>
+                        <li> <a class="has-arrow  " href="<?=base_url() ?>Rubros/" aria-expanded="false"><i class="fa fa-building"></i><span class="hide-menu">Gestionar Rubros</span></a>
                         </li>
-                        <li> <a class="has-arrow  " href="<?=base_url() ?>Emprendedoras/" aria-expanded="false"><i class="fa fa-suitcase"></i></i><span class="hide-menu">Bolsa de Emprendedoras </span></a>
+                        <li> <a class="has-arrow  " href="<?=base_url() ?>Emprendedoras/" aria-expanded="false"><i class="fa fa-shopping-bag"></i></i><span class="hide-menu">Bolsa de Emprendedoras </span></a>
  
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Mensajes</span></a>
@@ -35,13 +35,14 @@
                         </li>
                          <li> <a class="has-arrow  " href="<?=base_url() ?>Eventos/" aria-expanded="false"><i class="fa fa-calendar"></i><span class="hide-menu">Calendario de Eventos</span></a>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu">Noticias </span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-newspaper-o"></i><span class="hide-menu">Noticias </span></a>
                             <ul aria-expanded="false" class="collapse">
                                  <li><a href="<?=base_url() ?>Anuncios/">Ver noticias</a></li>
                                     
                                 </li>
                                 <li><a href="<?=base_url() ?>Anuncios/publicar_anuncios">Publicar Noticias</a>
                                 <li><a href="<?=base_url() ?>Anuncios/GestionarNoticias">Gestionar noticias</a></li>
+                                <li><a href="<?=base_url() ?>Anuncios/GestionarBorradores">Gestionar borradores</a></li>
                                 </li>
                         </li>
                             </ul>

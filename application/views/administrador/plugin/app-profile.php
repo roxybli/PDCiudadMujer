@@ -1,10 +1,30 @@
 <?php 
 foreach ($info as $fila) {
+
+
 }
 foreach ($user->result() as $fila2) {
-    # code...
+
 }
+
 ?>
+<style type="text/css">
+    .iconImage{
+        display: inline-block;
+    }
+    .textIcon{
+        display: inline-block;
+        color: white;
+        margin: 10px;
+        font-weight: bold;
+    }
+    .CardItem a:hover{
+        display: block;
+        margin: 0px 40px;
+       
+    }
+</style>
+   
             <!-- Container fluid  -->
             <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
             <div class="row page-titles">
@@ -20,6 +40,21 @@ foreach ($user->result() as $fila2) {
             <div class="container-fluid">
             <div class="row">
             <?php
+            foreach($ultimo->result() as $Ultimo){
+                    $fecha = new DateTime($Ultimo->fecha_inicio);
+                    $fecha = $fecha->format("d-m-Y");
+                    $fecha1 = new DateTime($Ultimo->fecha_fin);
+                    $fecha1 = $fecha1->format("d-m-Y");
+                
+            }
+            
+            foreach($pultimo->result() as $Pultimo){
+                    $fecha2 = new DateTime($Pultimo->fecha_inicio);
+                    $fecha2 = $fecha2->format("d-m-Y");
+                    $fecha3 = new DateTime($Pultimo->fecha_fin);
+                    $fecha3 = $fecha3->format("d-m-Y");
+                
+            }
             foreach ($ingreso->result() as $Ingresos) {
                 # code...
             }
@@ -56,7 +91,6 @@ foreach ($user->result() as $fila2) {
                                     }
                                     else{
                                         echo $Ingresos->Total_Ingreso;
-
                                     }  
                                     ?></h2>
                                     <p class="m-b-0">Ingresos</p>
@@ -77,44 +111,44 @@ foreach ($user->result() as $fila2) {
                             </div>
                         </div>
                     </div>
-                     <div class="row" id="MenuCard" style="margin: 20px">
+                     <div class="row" id="MenuCard" >
                     <div class="col-md-6">
-                            <div class="CardItem card" style="background-color:#8e24aa; color:white; height:100px;">
+                            <div class="CardItem card" style="background-color:#1B5E20; color:white; height:100px;">
                                 <a href="<?=base_url() ?>Contactos/">
-                                <div class="textIcon" style="color: white">
+                                <div class="textIcon" >
                                     <img class="iconImage"  src="<?= base_url()?>plantilla/images/usuario.png">
-                                    Chat
+                                   <h3 class="textIcon">  Chat </h3>
                                 </div>
                                 </a> 
                             </div>
                     </div>
                     <div class="col-md-6">
-                            <div class="CardItem card" style="background-color:#00897b; color:white; height:100px;">
+                            <div class="CardItem card" style="background-color:#01579B; color:white; height:100px;">
                                 <a href="<?=base_url() ?>Emprendedoras/">
-                                <div class="textIcon" style="color: white">
+                                <div class="textIcon" >
                                     <img class="iconImage"  src="<?= base_url()?>plantilla/images/carro.png">
-                                    Bolsa de emprendedoras
+                                   <h3 class="textIcon">  Bolsa de emprendedoras</h3>
                                 </div>
                                 </a>
                                 
                             </div>
                     </div>
                     <div class="col-md-6">
-                            <div  class="CardItem card" style="background-color:#512da8; color:white; height:100px;">
+                            <div  class="CardItem card" style="background-color:#424242; color:white; height:100px;">
                                     <a href="<?=base_url() ?>inventario/productos_disponibles">
-                                    <div class="textIcon" style="color: white">
+                                    <div class="textIcon" >
                                         <img class="iconImage"  src="<?= base_url()?>plantilla/images/navegador.png">
-                                        Productos en Inventario
+                                       <h3 class="textIcon"> Productos en Inventario</h3>
                                     </div>
                                     </a> 
                                 </div>    
                     </div>
                      <div class="col-md-6">
-                            <div class="CardItem card" style="background-color:#d81b60; color:white; height:100px;">
+                            <div class="CardItem card" style="background-color:#546E7A; color:white; height:100px;">
                                 <a href="<?=base_url() ?>controlie/balances">
-                                <div class="textIcon" style="color: white">
+                                <div class="textIcon" >
                                     <img class="iconImage"  src="<?= base_url()?>plantilla/images/navegador.png">
-                                    Balances de ingresos y egresos
+                                   <h3 class="textIcon"> Balances de ingresos y egresos </h3>
                                 </div>
                                 </a>
                                 
@@ -123,17 +157,18 @@ foreach ($user->result() as $fila2) {
                 </div>
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-20">
-                        <div class="card" style="margin-left: 40px">
+                    <div class="col-lg-9">
+                        <div class="card">
                             <div class="card-body">
-                                <div class="card-two" style="width: auto;">
+                                <div class="card-two" style="width:auto">
                                     <header>
                                         <div class="avatar">
-                                            <img style="height: 150px; width: 150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto_Perfil;?>" alt="Imagen de perfil" />
+                                            <a href="<?php echo base_url().'plantilla/img_perfil/'.$fila->Foto_Perfil;?>" data-lightbox="example-set">
+                                            <img style="height: 150px; width: 150px;" src="<?=base_url()?>plantilla/img_perfil/<?php echo $fila->Foto_Perfil;?>" alt="Imagen de perfil" />
                                         </div>
-                                    </header>
-                                  <br><br><br>  <h3 style="color: #000"><?php echo "Encargada del negocio: <br>".$fila->Nombre." ".$fila->Apellido?></h3>
-                                    <div class="desc" style="color: #000">
+                                    </header><br><br>
+                                  <h3 style="color: #000"><?php echo "Encargada del negocio: <br>".$fila->Nombre." ".$fila->Apellido?></h3>
+                                    <div class="desc" style="color: #000; padding-top: 0px ">
                                         <h3 style="color: #000">Sede</h3><?php echo $fila->Nombre_Sede;?>
                                     </div>  
                             </div>
@@ -141,8 +176,8 @@ foreach ($user->result() as $fila2) {
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-12">
-                        <div class="card" style="margin-left: 40px">
+                    <div class="col-lg-14">
+                        <div class="card" >
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs profile-tab" role="tablist">
                                 <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Mi negocio</a> </li>
@@ -151,29 +186,34 @@ foreach ($user->result() as $fila2) {
                                <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settingss" role="tab">Editar Información del Negocio</a> </li>-->
                             </ul>
                             <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="home" role="tabpanel">
+                            <div class="tab-content" >
+                                <div class="tab-pane active" id="home" role="tabpanel"><br>
                                     <div class="card-body">
+                                     <div class="card TituloUser" style="height: 60px">
+                                            <h3 class="responsive" style="color:white; font-weight:bold;">Editar Fotografias del negocio</h3>
+                                    </div>
                                         <div class="profiletimeline" >
                                             <div class="sl-item">
-                                                <div class="sl-left"> <img src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto_Perfil;?>" alt="Imagen de perfil" class="img-circle" /> </div>
-                                                <div class="sl-right">
-                                                    <div><a href="" class="link"><?php echo $fila->Nombre_Negocio; ?></a>
+                                                
+                                                    <div>
+                                                <div class="sl-right"><div class="sl-left"> <img src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto_Perfil;?>" alt="Imagen de perfil" class="img-circle" /> </div><a href="" class="link"><?php echo $fila->Nombre_Negocio; ?></a>
                                                         <p>Imagenes de mi negocio | Rubro: <?php echo $fila->Nombre_Rubro?></p>
                                                         <div class="row">
-                                                            <div class="col-lg-3 col-md-6 m-b-20 imgs"><img style="height:150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto1;?>" class="img-responsive radius" />
+                                                            <div class="col-lg-3 col-md-6 m-b-20 imgs">
+                                                                
+                                                                <a target="_blank" href="<?php echo base_url().'plantilla/img_perfil/'.$fila->Foto1;?>" data-lightbox="example-set" ><img style="height:150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto1;?>" class="img-responsive radius" />
                                                             <div style="padding:10px;">
                                                             <a style="color:white;" data-toggle="modal" data-target="#ModalMensaje"  onclick="editI(1)" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Editar imagen</a>   
                                                             </div>
 
                                                             </div>
-                                                            <div class="col-lg-3 col-md-6 m-b-20"><img style="height:150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto2;?>" class="img-responsive radius" />
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><a target="_blank" href="<?php echo base_url().'plantilla/img_perfil/'.$fila->Foto2;?>" data-lightbox="example-set" ><img style="height:150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto2;?>" class="img-responsive radius" />
                                                              <div style="padding:10px;">
                                                             <a style="color:white;" data-toggle="modal" data-target="#ModalMensaje" onclick="editI(2)" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Editar imagen</a>   
                                                             </div>
                                                             
                                                             </div>
-                                                            <div class="col-lg-3 col-md-6 m-b-20"><img style="height:150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto3;?>" class="img-responsive radius" />
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><a target="_blank" href="<?php echo base_url().'plantilla/img_perfil/'.$fila->Foto3;?>" data-lightbox="example-set" ><img style="height:150px;" src="<?=base_url() ?>plantilla/img_perfil/<?php echo $fila->Foto3;?>" class="img-responsive radius" />
                                                              <div style="padding:10px;">
                                                             <a style="color:white;" data-toggle="modal" data-target="#ModalMensaje" onclick="editI(3)" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Editar imagen</a>   
                                                             </div>
@@ -189,7 +229,10 @@ foreach ($user->result() as $fila2) {
                                 <!--second tab-->
                                 <div class="tab-pane" id="profile" role="tabpanel">
                                     <div class="card-body">
-                                        <div class="row">
+                                        <div class="card TituloUser" style="height: 55px">
+                                            <h2 class="responsive" style="color:white; font-weight:bold;">Información del negocio</h2>
+                                    </div>
+                                        <div class="row"><br><br>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Encargado</strong>
                                                 <br>
                                                 <p class="text-muted"><?php echo $fila->Nombre?></p>
@@ -213,13 +256,13 @@ foreach ($user->result() as $fila2) {
                                 <div class="tab-pane" id="settings" role="tabpanel">
                                     <div class="row ">
                                     <div class="col-sm-12">
-                                        <div class="card">
-                                                <div class="card-title">
-                                                    <h2 align="center">Editar información personal</h2>
-                                                </div>
+                                                                                      
+                                                <div class="card TituloUser" style="height: 60px">
+                                                    <h3 class="responsive" style="color:white; font-weight:bold;"> Editar información personal</h3>
+                                                </div><div style="padding-top: 10px">
                                                 <div class="form-validation">
                                                         <!-- Bread crumb -->
-                                                                    <form class="form-valide" name="f1" id="f1"action="<?=base_url()?>Perfiles/EditarUsuaria" method="post">
+                                                                    <form class="form-valide" name="f1" id="f1"action="<?=base_url()?>Emprendedoras/EditarUsuarias" method="post">
                                                                         <div class="row ">
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
@@ -246,7 +289,7 @@ foreach ($user->result() as $fila2) {
                                                                                 <div class="form-group">
                                                                                 <span class="etiquetass">Nombre de usuario </span>
                                                                                     <div class="input-group">
-                                                                                        <input type="text" class="form-control" id="val-direccion " name="nomuser" placeholder="Nombre de usuario" value="<?php echo $fila2->Nom_User;?>" disabled>
+                                                                                        <input type="text" class="form-control" id="nomuser " name="nomuser" placeholder="Nombre de usuario" value="<?php echo $fila2->Nom_User;?>" disabled>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -265,7 +308,7 @@ foreach ($user->result() as $fila2) {
                                                                                 <div class="form-group">
                                                                                 <span class="etiquetass">Teléfono </span>
                                                                                     <div class="input-group">
-                                                                                        <input type="text" class="form-control" id="" name="val-phoneus" placeholder="Telefono" value="<?php echo $fila2->Telefono;?>" onkeypress="return numeros(event, 'num')" >
+                                                                                        <input type="text" class="form-control" id="val-phoneus" name="telefono" placeholder="Telefono" value="<?php echo $fila2->Telefono;?>" onkeypress="return numeros(event, 'num')" >
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -307,22 +350,24 @@ foreach ($user->result() as $fila2) {
                                                                                 <div class="form-group">
                                                                                 
                                                                                     <div class="input-group">
-                                                                                        <input type="hidden"  class="form-control"  placeholder="Contraseña Nueva " id="pass4" name="pass4"  value="<?php echo $fila2->Pass;?>">
+                                                                                        <input type="hidden"  class="form-control"  placeholder="Contraseña Nueva " id="pass4" name="pass4"  value="<?php  echo $contra=$this->encrypt->decode($fila2->Pass);?>">
+                                                                                        <input type="hidden"  class="form-control"   id="tipo" name="tipo"  value="<?php  echo$fila2->fk_Tipo_Usuaria;?>"> 
                                                                                     </div>
                                                                                 </div>
                                                                             </div>                 
                                                                         <!--/row-->
                                                                       <div class="col-md-12"align="right">
-                                                                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-floppy-o" ></i> Editar</button>  
+                                                                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-50"><i class="fa fa-floppy-o" ></i> Editar</button>  
                                                                         </div>
-                                                                            </div></div>
+                                                                            </div></div></div>
                                                                             <!--/span-->
                                                                         <!--/row-->
                                                                     </form>
-              
-                                                <div class="card-title">
-                                                    <h2 align="center">Editar Información del negocio</h2>
+            
+                                                <div class="card TituloUser" style="height: 60px">
+                                                    <h3 class="responsive" style="color:white; font-weight:bold;">Editar Información del negocio</h3>
                                                 </div>
+                                                <div style="padding-top: 10px">
                                                                     <div class="form-validation">
                                                         <!-- Bread crumb -->
                                                                     <form class="form-valide" action="<?=base_url()?>Perfiles/EditarPerfil" method="post">                    
@@ -338,10 +383,10 @@ foreach ($user->result() as $fila2) {
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                <span class="etiquetass">Dirección del Negocio </span>
+                                                                                <span class="etiquetass">Dirección Google Maps del Negocio </span>
                                                                                     <div class="input-group">
-                                                                                        <input type="text" class="form-control" id="val-direccion " name="direcion_n" placeholder="Apellido" value="<?php echo $fila->Direccion_Negocio;?>"  onkeyup="this.value=NumText(this.value)">
-                                                                                    </div>
+                                                                                        <input type="text" class="form-control" id="val-website " name="direccion_n" placeholder="Dirección" value="<?php echo $fila->Direccion_Negocio;?>"  onkeyup="this.value=NumText(this.value)">               
+                                                                                    </div><a class="etiqueta2" href="https://www.google.com/maps" target="_blank" style="color: red">Ingrese a google maps haciendo click aqui.</a>
                                                                                 </div>
                                                                             </div>
                                                                             <!--/span-->
@@ -371,9 +416,9 @@ foreach ($user->result() as $fila2) {
                                                                         <div class="row ">
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                <span class="etiquetass">Dirección </span>
+                                                                                <span class="etiquetass">Sede</span>
                                                                                     <div class="input-group">
-                                                                                        <input type="text" class="form-control" id="val-phoneus " name="direccion_n" placeholder="Direccion" value="<?php echo $fila->Direccion_Negocio;?>"  onkeyup="this.value=NumText(this.value)">
+                                                                                        <input type="text" class="form-control" id="val-phoneus " name="direccion_n" placeholder="Sede" value="<?php echo $fila->Nombre_Sede;?>"  onkeyup="this.value=NumText(this.value)" disabled>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -392,7 +437,7 @@ foreach ($user->result() as $fila2) {
                                                                                 <div class="form-group">
                                                                                 <span class="etiquetass">Correo electrónico </span>
                                                                                     <div class="input-group">
-                                                                                        <input type="text" class="form-control" id="val-username" name="Correo_n" placeholder="Correo" value="<?php echo $fila->Correo;?>" onkeyup="this.value=NumText(this.value)">
+                                                                                        <input type="text" class="form-control" id="val-email" name="Correo_n" placeholder="Correo" value="<?php echo $fila->Correo;?>" onkeyup="this.value=NumText(this.value)">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -401,7 +446,7 @@ foreach ($user->result() as $fila2) {
                                                                        
                                                                         <!--/row-->
                                                                         <div class="col-md-12" align="right">
-                                                                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><i class="fa fa-floppy-o"></i> Editar</button>  
+                                                                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-50"><i class="fa fa-floppy-o"></i> Editar</button>  
                                                                         </div>
                                                         <!-- End Bread crumb -->
                                                                         </div>
@@ -412,6 +457,63 @@ foreach ($user->result() as $fila2) {
                                                         </div>
                                                     </div>
                                            </div>
+                                           </div>
+                                           </div>
+
+                        <div class="col-lg-3" style="width: 900px; height: 1200px">
+                    <!-- Ficha de eventos recientes -->                 
+                        <div class="card" style="float:right">
+                            <div class="card-body">
+                                <div class="card-two">
+                                    <header>
+                                            <img style="height: 50px; width: 50px;" src="<?=base_url() ?>plantilla/images/evento.png" />
+                                
+                                    <h2 style="color: #000">Ultimos eventos: </h1>
+                                    </header>
+                                    <br>
+                                    <hr>
+                                    <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner" style="width: 250px; height: 550px">
+                                    <div class="carousel-item active">
+                                    <h4 style="color: #000"  ><span class="fa fa-home"> Evento: </span></h4><?php echo $Ultimo->titulo_evento;?>
+                                   <br><br><h4 style="color: #000"><span class="fa fa-calendar"> Fecha Inicio: </span> </h4><?php echo $fecha;?>
+                                   <br><br><h4 style="color: #000" ><span class="fa fa-map"> Ubicación:  </span></h4><?php echo $Ultimo->ubicacion;?>
+                                   <br><br><h4 style="color: #000"><span class="fa fa-book"> Descripción: </span> </h4><?php echo $Ultimo->contenido_evento;?>                               
+                                   <br><br><h4 style="color: #000" ><span class="fa fa-calendar"> Fecha Fin: </span> </h4><?php echo $fecha1;?><br><br> <br><br>
+                                    </div>
+                                    <div class="carousel-item" style="width: 250px; height: 450px">
+                                     <h4 style="color: #000"><span class="fa fa-home"> Evento: </span></h4><?php echo $Pultimo->titulo_evento;?>
+                                   <br><br><h4 style="color: #000"><span class="fa fa-calendar"> Fecha Inicio: </span> </h4><?php echo $fecha2;?>
+                                   <br><br><h4 style="color: #000"><span class="fa fa-map"> Ubicación: </span> </h4><?php echo $Pultimo->ubicacion;?>
+                                   <br><br><h4 style="color: #000"><span class="fa fa-book"> Descripción: </span></h4><?php echo $Pultimo->contenido_evento;?>
+                                   <br><br><h4 style="color: #000"><span class="fa fa-calendar"> Fecha Fin: </span></h4><?php echo $fecha3;?> 
+                                    </div>
+                                    <!--
+                                    <div class="carousel-item">
+                                    <img class="d-block w-100" src="..." alt="Third slide">
+                                    </div>
+                                    -->
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                                    <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Siguiente</span>
+                                    </a>
+                                    </div>
+            
+                            </div>
+                            
+                        </div>
+                     </div>
+                     <!-- Ficha de eventos recientes -->        
+                     
+                     </div>
+                                  </div>
+
+                                           
                                            </div>
                                            </div>
 <!-- Modal edit -->
@@ -461,11 +563,11 @@ foreach ($user->result() as $fila2) {
             <div class="row btnCenter1" id="DivBotones3" style="display:none;" align="right"> 
                     <button type="submit" class="btn btn-primary"><i class="fa fa-picture-o" style="margin:5;" aria-hidden="true"></i> Guardar</button>
                 
-            </div>
+            </div></div>
         </form> 
        </div>
             
-      </div>
+      
       <div class="modal-footer">
         
       </div>

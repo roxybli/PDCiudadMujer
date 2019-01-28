@@ -1,9 +1,9 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles" >
     <div class="col-md-4 align-self-center">
         <a href="<?=base_url() ?>inventario/"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver </h3></a>
      </div>
      <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Insumos disponibles </h3>
+       
      </div>
     <div class="col-md-3 align-self-center">
         <ol class="breadcrumb">
@@ -15,6 +15,10 @@
 
 <div class="container-fluid">
 <div class="row">
+    <div class="card TituloUser" style="height: 60px">
+                                    <h3 class="responsive" style="color:white; font-weight:bold;">Insumos disponibles </h3>
+                                </div>
+    
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
@@ -29,7 +33,7 @@
                     else
                     {
                 ?>
-                <a target="_blank" href="<?= base_url() ?>insumos/reporteInsumos" class="btn btn-danger"> Ver en PDF</a>
+                <a target="_blank" href="<?= base_url() ?>insumos/reporteInsumos" class="btn btn-danger"><i class="fa fa-file" ></i> Ver en PDF</a>
                 </div>
                 <strong><span style="background-color: rgba(255, 0, 0, 0.2); color: rgba(255, 0, 0, 0)"> ... </span> Has sobrepasado la cantidad minima en stock</strong>
                     <table class="table negociosD text-cell" id="inventarioInsumos">

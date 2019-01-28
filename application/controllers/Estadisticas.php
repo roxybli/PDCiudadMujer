@@ -42,6 +42,7 @@ class Estadisticas extends CI_Controller {
 		$datos = $this->Estadisticas_Model->EstadicticasCEgresos($fechaI, $fechaF);
 		echo json_encode($datos->result());
 	}
+		
 
 }
 ?>

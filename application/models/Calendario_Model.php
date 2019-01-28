@@ -29,6 +29,17 @@ class Calendario_Model extends CI_Model{
 			return false;
 		}
 	}
+
+	public function verUltimoEvento(){
+		$sql="SELECT * FROM `tbl_eventos` WHERE `Estado_Evento`IS null";
+		$res = $this->db->query($sql);
+		return $res->result();
+	}
+	
+	public function EstadoEvento($id){
+		$sql="UPDATE tbl_eventos SET Estado_Evento='Leido' WHERE id_evento=$id";
+		$this->db->query($sql);
+	}
 	public function GetEventById($id){
 		$res = $this->db->query("SELECT * FROM tbl_Eventos WHERE id_evento=$id");
 		return $res;

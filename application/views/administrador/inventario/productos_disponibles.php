@@ -1,10 +1,9 @@
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles" >
     <div class="col-md-4 align-self-center">
         <a href="<?=base_url() ?>inventario/"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver </h3></a>
      </div>
 
      <div class="col-md-5 align-center">
-        <h3 style="color: #fff">Productos en Inventario</h3>
      </div>
 
     <div class="col-md-3 align-self-center">
@@ -17,12 +16,15 @@
 <div class="container-fluid">
 <div class="row">
     <div class="col-lg-12">
+        <div class="card TituloUser" style="height: 60px">
+        <h3 class="responsive" style="color:white; font-weight:bold;">Productos en Inventario</h3>
+    </div>
         <div class="card"> 
             <div class="card-title" align="right">
            
-                <p><a href="<?= base_url() ?>/inventario/productosProceso" class="btn btn-info">Ver productos en proceso</a>
-                <a href="<?= base_url() ?>/inventario/ventasRealizadas" class="btn btn-info">Ventas realizadas</a>
-                <a target="_blank" href="<?= base_url() ?>inventario/reporteInventario" class="btn btn-danger"> Ver en PDF</a></p>
+                <p><a href="<?= base_url() ?>/inventario/productosProceso" class="btn btn-info"><i class="fa fa-bars"></i> Ver productos en proceso</a>
+                <a href="<?= base_url() ?>/inventario/ventasRealizadas" class="btn btn-info"><i class="fa fa-bars"></i> Ventas realizadas</a>
+                <a target="_blank" href="<?= base_url() ?>inventario/reporteInventario" class="btn btn-danger"><i class="fa fa-file"></i> Ver en PDF</a></p>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

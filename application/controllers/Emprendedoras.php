@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class Emprendedoras extends CI_Controller {
+	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('encrypt');
+		
+	}
+
 	public function index()
 	{
 			if($tipo=$this->session->userdata('login')){
@@ -21,8 +29,8 @@ class Emprendedoras extends CI_Controller {
 		$this->load->view('emprendedoras/bolsa_emprendedoras', $data4);
 		$this->load->view('administrador/base/footer');
 	}
-	public function BuscarPor(){
-		if ($this->input->is_ajax_request()) {
+public function BuscarPor(){
+	if ($this->input->is_ajax_request()) {
 			$valor = $this->input->POST("buscar");
 			$valorS = $this->input->POST("buscarS");
 			$valorR = $this->input->POST("buscarR");
@@ -69,7 +77,6 @@ class Emprendedoras extends CI_Controller {
 		$this->load->model('Usuarias_Model');
 		$resultado =$this->Usuarias_Model->CargarTipo();
 		$resultado2 =$this->Usuarias_Model->CargarSede();
-
 		$data=array('con' => $resultado, 'con2'=>$resultado2);
 		$this->load->view('administrador/base/header');
 		$this->load->view('administrador/usuarias/crear_usuaria', $data);
@@ -93,7 +100,19 @@ class Emprendedoras extends CI_Controller {
 	{
 		$this->load->model('Usuarias_Model');
 	    $datos=$this->input->POST();
-	    $bool= $this->Usuarias_Model->insertarUsuaria($datos);
+	    $nombre=$this->input->POST('nombre');
+	    $apellido=$this->input->POST('apellido');
+	    $nomuser=$this->input->POST('nomuser');
+	    $pass=$this->input->POST('pass');
+	    $encrontra=$this->encrypt->encode($pass);
+	    $direccion=$this->input->POST('direccion');
+	    $telefono=$this->input->POST('telefono');
+		$dui=$this->input->POST('dui');
+		$tipo=$this->input->POST('tipo');
+		$sede=$this->input->POST('sede');
+		$Año_Ingreso=$this->input->POST('Año_Ingreso');
+	    $data = array('datos'=> $datos,'nombre' => $nombre,'apellido' => $apellido, 'nomuser' => $nomuser,'pass' => $encrontra, 'direccion' => $direccion, 'telefono' => $telefono, 'dui' => $dui, 'tipo' => $tipo,'sede' => $sede, 'Año_Ingreso' => $Año_Ingreso);
+	    $bool= $this->Usuarias_Model->insertarUsuaria($data);
 	    if($bool){
 	    	echo '<script type="text/javascript">
 				self.location ="'.base_url().'/Emprendedoras/InsertarUsuaria"
@@ -128,13 +147,13 @@ class Emprendedoras extends CI_Controller {
 		if ($this->input->is_ajax_request()) {
 			$this->load->model('Usuarias_Model');
 			$valor = $this->input->POST("buscar");
-			//$valor="roxwite";
 			$result = $this->Usuarias_Model->verificarNombreUser($valor);
 			echo json_encode($result);
 		}
 	}
 	public function editar(){
 		$id= $this->input->GET('id');
+		$this->load->library('encrypt');
 		$this->load->model("Usuarias_Model");
 		$res=$this->Usuarias_Model->CargarUsuaria($id);
 		$this->load->model('Usuarias_Model');
@@ -148,7 +167,19 @@ class Emprendedoras extends CI_Controller {
 	public function EditarUsuaria(){
 		$this->load->model('Usuarias_Model');
 	    $datos=$this->input->POST();
-	    $bool= $this->Usuarias_Model->editarUsuaria($datos);
+	    $nombre=$this->input->POST('nombre');
+	    $apellido=$this->input->POST('apellido');
+	    $nomuser=$this->input->POST('nomuser');
+	    $pass=$this->input->POST('pass');
+	    $encrontra=$this->encrypt->encode($pass);
+	    $direccion=$this->input->POST('direccion');
+	    $telefono=$this->input->POST('telefono');
+	    $dui=$this->input->POST('dui');
+		$tipo=$this->input->POST('tipo');
+		$sede=$this->input->POST('sede');
+		$pass4=$this->input->POST('pass4');
+	    $data = array('pass4'=>$pass4,'datos'=> $datos,'nombre' => $nombre,'apellido' => $apellido, 'nomuser' => $nomuser,'pass' => $encrontra, 'direccion' => $direccion, 'telefono' => $telefono, 'dui' => $dui, 'tipo' => $tipo,'sede' => $sede);
+	    $bool= $this->Usuarias_Model->editarUsuaria($data);
 	    if($bool){
 	    	echo '<script type="text/javascript">
 				self.location ="'.base_url().'/Emprendedoras/VerUsuarias"
@@ -158,6 +189,33 @@ class Emprendedoras extends CI_Controller {
 	    	echo '<script type="text/javascript">
 				alert("Error al modificar la informacion");
 				self.location ="'.base_url().'/Emprendedoras/VerUsuarias"
+				</script>';
+	    }
+	}
+
+	public function EditarUsuarias(){
+		$idUsuario = $this->session->userdata('id');
+		$this->load->model('Usuarias_Model');
+	    $datos=$this->input->POST();
+	    $nombre=$this->input->POST('nombre');
+	    $apellido=$this->input->POST('apellido');
+	    $nomuser=$this->input->POST('nomuser');
+	    $pass=$this->input->POST('pass');
+	    $encrontra=$this->encrypt->encode($pass);
+	    $direccion=$this->input->POST('direccion');
+	    $telefono=$this->input->POST('telefono');
+	    $tipo=$this->input->POST('tipo');
+	    $data = array('id'=>$idUsuario,'datos'=> $datos,'nombre' => $nombre,'apellido' => $apellido, 'nomuser'=> $nomuser,'pass' => $encrontra, 'direccion' => $direccion, 'telefono' => $telefono, 'tipo' => $tipo);
+	    $bool= $this->Usuarias_Model->editarUsuarias($data);
+	    if($bool){
+	    	echo '<script type="text/javascript">
+				self.location ="'.base_url().'/Login/home"
+				</script>';
+	    }
+	    else{
+	    	echo '<script type="text/javascript">
+				alert("Error al modificar la informacion");
+				self.location ="'.base_url().'/Login/home"
 				</script>';
 	    }
 	}

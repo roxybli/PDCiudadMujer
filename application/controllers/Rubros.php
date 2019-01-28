@@ -35,7 +35,6 @@ class Rubros extends CI_Controller {
 		$bool=$this->Rubros_Model->editarRubros($datos);
 		if($bool){
 			echo '<script type="text/javascript">
-			
 				self.location ="'.base_url().'/Rubros"
 				</script>';
 		}

@@ -3,13 +3,16 @@
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
 
 <link rel='stylesheet prefetch' href='<?= base_url()?>plantilla/componentes/css/chatU.css'>
-<div class="card TituloUser">
-<h3  class="responsive" style="color:white; font-weight:bold;">Chat de Emprendedoras </h3>
+<div style="padding-top: 30px">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+<div class="card TituloUser" >
+<h2  class="responsive" style="color:white; font-weight:bold; font-size: large;"> Chat de Emprendedoras </h2>
 </div>
-<div style="padding: 5px" style="width: auto;">
-	
+<div style="padding: 15px; padding-left: 5px; width: auto;">
 <div id="frame" style="width: auto;">
-	<div id="sidepanel" style="padding: 10px; ">
+	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
 				<img id="profile-img" src="<?= base_url()?>plantilla/images/chica.png" class="online" alt="" />
@@ -17,9 +20,9 @@
 				
 				<div id="status-options">
 					<ul>
-						<li id="status-online" class="active"><span class="status-circle"></span> <p>En Linea</p></li>
-						<li id="status-away"><span class="status-circle"></span> <p>Ocupado</p></li>
-						<li id="status-busy"><span class="status-circle"></span> <p>Desconectado</p></li>
+						<li id="status-online" class="active"><p style="margin: 0px">En Linea </p><span class="status-circle" style="margin: 5px"></span></li>
+						<li id="status-away"><p style="margin: 0px">Ocupado  <span class="status-circle" style="margin: 5px"></span></p></li>
+						<li id="status-busy"><p style="margin: 0px">Desconectado  <span class="status-circle"style="margin: 5px"></span> </p></li>
 					</ul>
 				</div>
 			</div>
@@ -94,10 +97,14 @@
 		<div class="message-input">
 			<div class="wrap">
 			<input type="text" placeholder="Escriba un mensaje..."  onkeyup="this.value=NumText(this.value)" />
-			<button class="submit "style="border-radius: 3px; color: "><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			<button class="submit "style="border-radius: 3px; height: 50px; padding: 0px"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <script >
@@ -192,7 +199,7 @@ function newMessage() {
             		}
             	}
             	else{
-            		toastr.error('No hay ningun mensjaje en el chat','Ooops!!!!',{
+            		toastr.error('No hay ningun mensaje en el chat','Lo sentimos!!!!',{
 			        "positionClass": "toast-bottom-full-width",
 			        timeOut: 5000,
 			        "closeButton": true,
@@ -304,7 +311,7 @@ function GuardarMsj(id, idEmi, idRec, nom, foto){
             		
             	}
             	else{
-            		toastr.error('No hay ningun mensjaje en el chat','Ooops!!!!',{
+            		toastr.error('No hay ningun mensjaje en el chat','Lo sentimos!!!!',{
 			        "positionClass": "toast-bottom-full-width",
 			        timeOut: 5000,
 			        "closeButton": true,

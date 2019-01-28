@@ -19,7 +19,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-title">
-                <p class="text-danger">(*) Todos los campos son requeridos.</p>
+                <p class="text-danger"><b>Indicaciones</b><br>(*) Todos los campos son requeridos.</p>
             </div>
             <div class="card-body">
                 <div id="cabeceraReceta">

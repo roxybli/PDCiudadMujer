@@ -2,7 +2,7 @@
     foreach ($datos->result() as $filaCabecera)
     {}
 ?>
-<div class="row page-titles" style="background:#000d5a;">
+<div class="row page-titles">
     <div class="col-md-4 align-self-center">
         <a href="<?= base_url() ?>capital/negocios"><h3 class="text-primary"><i class="fa fa-chevron-left"></i> Volver</h3></a>
     </div>
@@ -18,14 +18,17 @@
         </ol>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid"><div>
+     <div class="card TituloUser" style="height: 60px" >
+        <h3 class="responsive" style="color:white; font-weight:bold;">Detalle del negocio <strong><?= $filaCabecera->Nombre_Subrubro   ?></strong></h3>
+     </div></div><br><br>
 <table class="table table-bordered negociosD" >
-    <tr>
-        <td colspan="4"><a href="<?= base_url() ?>capital/detalleNegocioPDF/<?= $filaCabecera->PK_Id_Subrubro ?>" class="btn btn-danger btn-sm" target="_blank">Ver en PDF</a></td>
+    <tr style="height: 40px">
+        <td colspan="4" ><a href="<?= base_url() ?>capital/detalleNegocioPDF/<?= $filaCabecera->PK_Id_Subrubro ?>" class="btn btn-danger btn-sm"  style=" height: 40px; font-size: medium;" target="_blank"><i class="fa fa-file "></i> Ver en PDF</a></td>
     </tr>
     <tr>
-        <th colspan="2" class="text-center" style="color:#fff"> Rubro: <strong><?= $filaCabecera->Nombre_Rubro ?></strong></th>
-        <th colspan="2" class="text-center" style="color:#fff"> Producción estimada: <strong><?= $filaCabecera->Produccion_Mensual  ?></strong></th>
+        <th colspan="2" class="text-center" style="color:#000; background: #fff"> Rubro: <strong><?= $filaCabecera->Nombre_Rubro ?></strong></th>
+        <th colspan="2" class="text-center" style="color:#000; background: #fff"> Producción estimada: <strong><?= $filaCabecera->Produccion_Mensual  ?></strong></th>
     </tr>
     <tr>
         <td class="text-center"><strong>Nombre</strong></td>
