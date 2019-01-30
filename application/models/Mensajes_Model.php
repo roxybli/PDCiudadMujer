@@ -17,10 +17,18 @@ class Mensajes_Model extends CI_Model
 	}
 	public function verMensaje(){
 		$id= $this->session->userdata('id');
-		$sql="SELECT * FROM tbl_Mensajes WHERE FK_Id_Usuaria=$id AND Estado_Mensaje='Nuevo'";
+		$sql="SELECT * FROM tbl_mensajes WHERE FK_Id_Usuaria=$id AND Estado_Mensaje='Nuevo'";
 		$res = $this->db->query($sql);
 		return $res->result();
 	}
+	
+	public function verMensajeC(){
+		$id= $this->session->userdata('id');
+		$sql="SELECT * FROM tbl_mensajes_contactos WHERE Id_Emisor=$id AND Estado_Mensaje IS NULL";
+		$res = $this->db->query($sql);
+		return $res->result();
+	}
+	
 	public function EstadoMensajesC(){
 		$id = $this->input->post('id');
 		$this->load->model('Mensajes_Model');
