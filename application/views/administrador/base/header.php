@@ -25,8 +25,8 @@
     <link href="<?=base_url() ?>plantilla/componentes/css/datepicker.css" rel="stylesheet">
 </head>
 <script>
-     setInterval("NMensajes()",1000);
-    function NMensajes(){
+   setInterval("NComentarios()",1000);
+    function NComentarios(){
       
       $.get("<?=base_url() ?>Mensajes/VerMensajes","",function(data){
       //console.log(res);
@@ -34,29 +34,24 @@
       var param=1;
       //console.log(json);
       //alert(json.length);
-      document.getElementById('Num').innerHTML=json.length;
+      document.getElementById('Num1').innerHTML=json.length;
       if(json==""){
         document.getElementById('noti1').style.display='none';
          document.getElementById('noti2').style.display='none';
-        document.getElementById('Mensaje').innerHTML='<p>No tienes nuevos mensajes</p>';
+        document.getElementById('Mensaje').innerHTML='<p>No tienes nuevos mensajes de contactos</p>';
       }
       else{
         html=""
          document.getElementById('noti1').style.display='block';
          document.getElementById('noti2').style.display='block';
        for (res in json){
-            //var cont='"'+json[res].nombre+'"';
-            //var us = json[res].nomUsuario;
-           /*document.getElementById('notificacion').innerHTML='<p>'+json[res].nombre+'</p><p>'+json[res].nomUsuario+'</p>'+
-            '<p><a href="<?php echo base_url();?>solicitud/detalleSolicitud?d='+json[res].id_solicitud+'&param='+param+'&e='+json[res].id_equipo+'">Ver Detalles</a></p>';
-              }*/
-                html+='<a onclick="ver('+json[res].PK_Id_Mensaje+')"><div class="btn btn-info btn-circle m-r-10"><i class="fa fa-envelope"></i></div><div class="mail-contnet"><h5>'+json[res].Emisor_Mensaje+'</h5><span class="mail-desc">'+json[res].Contacto_Mensaje+'</span> <span class="time">9:02 AM</span></div></a>';
+                html+='<a onclick="ver1('+json[res].PK_Id_Mensaje+')"><div class="btn btn-info btn-circle m-r-10"><i class="fa fa-envelope"></i></div><div class="mail-contnet"><h5>'+json[res].Contacto_Mensaje+'</h5><h5>'+json[res].Emisor_Mensaje+'</h5><h5>'+json[res].Contenido_Mensaje+'</h5></div></a>';
                }
                document.getElementById('Mensaje').innerHTML=html;
       }
     });
   }
-  function ver(id_m){
+  function ver1(id_m){
         $.ajax({
         url: '<?php echo base_url()?>Mensajes/EstadoMensajes',
         type: "POST",
@@ -64,7 +59,6 @@
         success:function(data){
         }
     });
-
   }
 
 
@@ -186,7 +180,7 @@
                             <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
                                 <ul>
                                     <li>
-                                        <div class="drop-title">Tienes <span id="Num"></span> comentarios nuevos</div>
+                                        <div class="drop-title">Tienes <span id="Num1"></span> comentarios nuevos</div>
                                     </li>
                                     <li>
                                         <div class="message-center" id="Mensaje" name="Mensaje">
