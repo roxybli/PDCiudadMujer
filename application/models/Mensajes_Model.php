@@ -24,7 +24,7 @@ class Mensajes_Model extends CI_Model
 	
 	public function verMensajeC(){
 		$id= $this->session->userdata('id');
-		$sql="SELECT * FROM tbl_mensajes_contactos WHERE Id_Emisor=$id AND Estado_Mensaje IS NULL";
+		$sql="SELECT * FROM tbl_mensajes_contactos WHERE Id_receptor=$id AND Estado_Mensaje IS NULL";
 		$res = $this->db->query($sql);
 		return $res->result();
 	}
