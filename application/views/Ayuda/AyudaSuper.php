@@ -27,6 +27,7 @@
                                            <p ><strong>¿Cómo puedo utilizar correctamente la plataforma digital?</strong></p>
                 <p>A continuación se listarán una serie de documentos, descárgalos y léelos para más información: es un manual por cada usuario de la Plataforma Digital </p>
                 <div align="center">
+                    <a href="<?= base_url()?>plantilla/Documentos/Manual_Programador.pdf" class ="btn btn-info btn-md" style="color:white; padding:20px; margin-left: 20px" target="_blank"><i class="fa fa-download fa-2x" ></i> Descargar Manual Programador</a><br><br>
                     <a href="<?= base_url()?>plantilla/Documentos/MANUAL_SUPER.pdf" class ="btn btn-info btn-md" style="color:white; padding:20px; margin-left: 20px" target="_blank"><i class="fa fa-download fa-2x" ></i> Descargar Manual Super Usuario</a>
                     <a href="<?= base_url()?>plantilla/Documentos/MANUAL_ADMIN.pdf" class ="btn btn-info btn-md" style="color:white; padding:20px; margin-left: 20px" target="_blank"><i class="fa fa-download fa-2x" ></i> Descargar Manual Administrador</a><br><br>
                     <a href="<?= base_url()?>plantilla/Documentos/MANUAL_EMPRENDEDORA.pdf" class ="btn btn-info btn-md" style="color:white; padding:20px; margin-left: 20px" target="_blank"><i class="fa fa-download fa-2x" ></i> Descargar Manual Emprendedora</a>

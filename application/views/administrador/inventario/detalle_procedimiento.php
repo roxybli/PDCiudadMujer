@@ -104,19 +104,19 @@
 <script type="text/javascript">
  function Validar(){
 
-    var existenciaInsumo = get.documentbyid
+    var existenciaInsumo =$('#existencia').val();
  }
-$("#crear").change(function() {
-        existencia = $("#existencia").val();
-        cantidad = $(this).val();
+$("#btnCrear").change(function() {
+        existencia = $('#existencia').val();
+        cantidad = $('#crear').val();
 
-if (cantidad> existenciaInsumo)
+if (cantidad> existencia)
 {
- sweetAlert("Accion no permitida", "Tamaño de la imagen tiene que ser de 720*540px", "error");
+ sweetAlert("Acción no permitida", "la cantidad a crear es mayor a la existencia", "error");
 }
 else
         {
-         $("#botonCrear").fadeIn(); 
+         $("#btnCrear").fadeIn(); 
         }
 
 }
